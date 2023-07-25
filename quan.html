@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>知识圈</title>
+		<link rel="stylesheet" href="common/vant.min.css" />
+		<script src="common/vue.js"></script>
+		<script src="common/vant.min.js"></script>
+		<script src="common/axios.min.js"></script>
+		<script src="common/Session.js"></script>
+		<script src="common/Tools.js"></script>
+		<script src="common/Validate.js"></script>
+		<script src="common/Page.js"></script>
+		<script src="common/Http.js"></script>
+		<script src="common/index.umd.js"></script>
+		<link rel="stylesheet" href="common/diygw-ui/index.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="container container22215">
+				<div class="diygw-title diygw-top solid-bottom" style="color: white; background: #f5227a">
+					<div class="title flex1 text-center">知识圈</div>
+				</div>
+				<scroll-view @scrolltoupper="scrolltoupperFlex4" @scrolltolower="scrolltolowerFlex4" scroll-x scroll-with-animation class="flex scroll-view diygw-col-24 flex-nowrap">
+					<div class="flex flex-nowrap">
+						<div class="diygw-text-line1 diygw-col-0 blue text2-clz diygw-text-sm">โปรสมาชิกใหม่</div>
+						<div class="diygw-col-0 text3-clz"></div>
+						<div class="diygw-col-0 text8-clz"></div>
+					</div>
+				</scroll-view>
+				<div class="flex flex-wrap diygw-col-24 flex-direction-column">
+					<div class="flex diygw-col-24">
+						<div class="diygw-list">
+							<div style="" class="diygw-item col-100 row solid-bottom">
+								<div class="diygw-avatar">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/icon1_rm.png" />
+								</div>
+								<div class="content">
+									<div class="title">เครดิตฟรี 100 บาท</div>
+									<div class="text-sm remark">เฉพาะสมาชิกใหม่ รับได้ทันที</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="diygw-text-line3 diygw-col-24 text-clz">
+						<ul>
+							<li>
+								<span style="color: #000000"
+									><strong><span style="font-size: 14px"> สมาชิกใหม่กดรับได้ทันที 1 คนต่อ 1 สิทธิ์</span></strong></span
+								>
+							</li>
+							<li>
+								<span style="color: #000000"
+									><strong><span style="font-size: 14px"> เล่นได้เฉพาะสล็อตเท่านั้น</span></strong></span
+								>
+							</li>
+							<li>
+								<strong><span style="color: #fc0707">หากตรวจพบว่าสมัครมาหลายยูสจะไม่สามารถถอนเงินได้</span></strong>
+							</li>
+						</ul>
+					</div>
+					<div class="flex diygw-col-24 items-center flex-nowrap">
+						<img src="" class="response diygw-col-0 image-clz" mode="widthFix" />
+					</div>
+					<div class="flex diygw-col-24 justify-between orange">
+						<div class="diygw-tag md radius">
+							<span class="diygw-icon diy-icon-share"></span>
+							<span> 1000 </span>
+						</div>
+						<div class="diygw-tag md radius">
+							<span class="diygw-icon diy-icon-comment"></span>
+							<span> 1000 </span>
+						</div>
+						<div class="diygw-tag md radius">
+							<span class="diygw-icon diy-icon-appreciate"></span>
+							<span> 2020-2-12 </span>
+						</div>
+					</div>
+					<div class="flex diygw-col-24">
+						<div class="diygw-pzx" style="border-bottom: 5px solid #eee"></div>
+					</div>
+				</div>
+				<div class="flex flex-wrap diygw-col-24 flex-direction-column">
+					<div class="flex diygw-col-24">
+						<div class="diygw-pzx" style="border-bottom: 5px solid #eee"></div>
+					</div>
+				</div>
+				<div class="flex diygw-col-24 diygw-bottom">
+					<div class="diygw-grid diygw-actions">
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid1.png" />
+								</div>
+								<div class="diygw-grid-title">หน้าหลัก</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid2.png" />
+								</div>
+								<div class="diygw-grid-title">เกม</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid3.png" />
+								</div>
+								<div class="diygw-grid-title">โปรโมชั่น</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid4.png" />
+									<div class="diygw-tag badge bar-badge-3 red">1</div>
+								</div>
+								<div class="diygw-grid-title">ข้อมูล</div>
+							</div>
+						</button>
+					</div>
+				</div>
+				<div class="flex flex-wrap diygw-col-24 flex5-clz">
+					<div class="flex flex-wrap diygw-col-0 flex-direction-column justify-start items-start flex7-clz">
+						<div class="diygw-col-0">สมาชิกเก่า</div>
+						<div class="diygw-col-0 text7-clz">รับได้วันละ 1 ครั้ง</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-0 flex-direction-column justify-start items-start flex-clz">
+						<div class="diygw-col-0">สมาชิกเก่า</div>
+						<div class="diygw-col-0 text10-clz">รับได้วันละ 1 ครั้ง</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-0 flex-direction-column justify-start items-start flex3-clz">
+						<div class="diygw-col-0">สมาชิกเก่า</div>
+						<div class="diygw-col-0 text12-clz">รับได้วันละ 1 ครั้ง</div>
+					</div>
+				</div>
+				<div class="flex flex-wrap diygw-col-24 flex9-clz">
+					<div class="flex flex-wrap diygw-col-0 flex-direction-column justify-start items-start flex10-clz">
+						<div class="diygw-col-0">สมาชิกเก่า</div>
+						<div class="diygw-col-0 text14-clz">รับได้วันละ 1 ครั้ง</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-0 flex-direction-column justify-start items-start flex15-clz">
+						<div class="diygw-col-0">สมาชิกเก่า</div>
+						<div class="diygw-col-0 text16-clz">รับได้วันละ 1 ครั้ง</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-0 flex-direction-column justify-start items-start flex16-clz">
+						<div class="diygw-col-0">สมาชิกเก่า</div>
+						<div class="diygw-col-0 text18-clz">รับได้วันละ 1 ครั้ง</div>
+					</div>
+				</div>
+				<div class="flex flex-wrap diygw-col-24 flex-direction-column flex14-clz">
+					<div class="flex diygw-col-24 items-end flex-nowrap flex17-clz">
+						<div class="flex flex-wrap diygw-col-24 flex-direction-column" style="z-index: 1001">
+							<van-sticky style="width: 100%; overflow: hidden" :offset-top="0">
+								<div class="flex van-sticky-100 flex-wrap diygw-col-0 items-center flex1-clz">
+									<div class="diygw-col-0 text4-clz"></div>
+									<span class="flex icon diygw-col-0 diy-icon-creative1"></span>
+									<div class="clearfix"></div>
+								</div>
+								<div class="clearfix"></div>
+							</van-sticky>
+						</div>
+						<img src="./static/star.png" class="image1-size diygw-image diygw-col-0" mode="widthFix" />
+					</div>
+					<div class="flex flex-wrap diygw-col-24 flex-direction-column flex19-clz">
+						<div class="diygw-col-24"></div>
+						<div class="diygw-text-line4 diygw-col-24">รายละเอียดโปรโมชั่น : xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+						<div class="diygw-col-24"></div>
+						<div class="diygw-col-24"></div>
+					</div>
+					<div class="flex diygw-col-24 items-end flex-nowrap flex20-clz">
+						<div class="flex flex-wrap diygw-col-0 items-center flex21-clz">
+							<span class="flex icon1 diygw-col-0 diy-icon-creative1"></span>
+							<div class="diygw-col-0 text22-clz"></div>
+						</div>
+						<img src="./static/star.png" class="image2-size diygw-image diygw-col-0" mode="widthFix" />
+					</div>
+					<div class="flex flex-wrap diygw-col-24 flex-direction-column flex22-clz">
+						<div class="diygw-text-line4 diygw-col-24">รายละเอียดโปรโมชั่น : xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+						<div class="diygw-col-24"></div>
+						<div class="diygw-col-24"></div>
+					</div>
+				</div>
+				<div class="version text-grey flex-direction-column flex diygw-col-24 justify-center align-center">
+					<div>DIY官网代码生成器生成</div>
+					<div>http://www.diygw.com</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</body>
+	<script type="module">
+		const app = Vue.createApp({
+			data() {
+				return {};
+			},
+			created() {
+				this.init();
+			},
+			methods: {
+				async init() {},
+				scrolltoupperFlex4(evt) {},
+				scrolltolowerFlex4(evt) {}
+			}
+		});
+		app.use(vant);
+		app.use(DiygwLib);
+		app.config.globalProperties.$tools = new Tools();
+		app.config.globalProperties.$http = httpService;
+		app.config.globalProperties.$session = Session;
+		app.mixin({
+			methods: {
+				Validate,
+				setData,
+				navigateTo,
+				showModal,
+				showToast,
+				uploadImage
+			}
+		});
+		app.mount('#app');
+	</script>
+	<style>
+		.text2-clz {
+			background-color: #07c160;
+			padding-top: 10px;
+			color: #ffffff;
+			font-weight: bold;
+			padding-left: 20px;
+			font-size: 14px !important;
+			padding-bottom: 8px;
+			font-style: italic;
+			text-align: center;
+			padding-right: 10px;
+		}
+		.text3-clz {
+			padding-top: 0px;
+			flex: 1;
+			padding-left: 10px;
+			padding-bottom: 0px;
+			padding-right: 10px;
+		}
+		.text8-clz {
+			padding-top: 0px;
+			flex: 1;
+			padding-left: 10px;
+			padding-bottom: 0px;
+			padding-right: 10px;
+		}
+		.text-clz {
+			padding-top: 10px;
+			font-weight: bold;
+			padding-left: 10px;
+			padding-bottom: 10px;
+			text-align: left;
+			padding-right: 10px;
+		}
+		.image-clz {
+			margin-left: 8px;
+			border-bottom-left-radius: 10px;
+			overflow: hidden;
+			flex: 1;
+			border-top-left-radius: 10px;
+			margin-top: 8px;
+			border-top-right-radius: 10px;
+			border-bottom-right-radius: 10px;
+			margin-bottom: 8px;
+			margin-right: 8px;
+		}
+		.bar-badge-3 {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+		.flex5-clz {
+			padding-top: 5px;
+			z-index: 100;
+			color: #ffffff;
+			font-weight: bold;
+			padding-left: 5px;
+			font-size: 14px !important;
+			padding-bottom: 5px;
+			height: 80px;
+			padding-right: 5px;
+		}
+		.flex7-clz {
+			padding-top: 8px;
+			border-bottom-left-radius: 6px;
+			z-index: 100;
+			background-size: cover;
+			padding-left: 8px;
+			padding-bottom: 8px;
+			border-top-right-radius: 6px;
+			margin-right: 5px;
+			margin-left: 5px;
+			overflow: hidden;
+			flex: 1;
+			border-top-left-radius: 6px;
+			margin-top: 5px;
+			border-bottom-right-radius: 6px;
+			background-image: url(/static/916f05db-9c0a-4db3-97a6-168e070847c1.png);
+			margin-bottom: 5px;
+			padding-right: 8px;
+		}
+		.text7-clz {
+			margin-left: 0px;
+			color: #e5e5e5;
+			font-size: 11px !important;
+			margin-top: 5px;
+			margin-bottom: 0px;
+			margin-right: 0px;
+		}
+		.flex-clz {
+			padding-top: 8px;
+			border-bottom-left-radius: 6px;
+			z-index: 100;
+			background-size: cover;
+			padding-left: 8px;
+			padding-bottom: 8px;
+			border-top-right-radius: 6px;
+			margin-right: 5px;
+			margin-left: 5px;
+			overflow: hidden;
+			flex: 1;
+			border-top-left-radius: 6px;
+			margin-top: 5px;
+			border-bottom-right-radius: 6px;
+			background-image: url(/static/cfe2af9f-9039-49d4-9ab6-47c976712d90.png);
+			margin-bottom: 5px;
+			padding-right: 8px;
+		}
+		.text10-clz {
+			margin-left: 0px;
+			color: #e5e5e5;
+			font-size: 11px !important;
+			margin-top: 5px;
+			margin-bottom: 0px;
+			margin-right: 0px;
+		}
+		.flex3-clz {
+			padding-top: 8px;
+			border-bottom-left-radius: 6px;
+			z-index: 100;
+			background-size: cover;
+			padding-left: 8px;
+			padding-bottom: 8px;
+			border-top-right-radius: 6px;
+			margin-right: 5px;
+			margin-left: 5px;
+			overflow: hidden;
+			flex: 1;
+			border-top-left-radius: 6px;
+			margin-top: 5px;
+			border-bottom-right-radius: 6px;
+			background-image: url(/static/6ae393e9-9d10-4664-a6dd-dab7ebfc6c1d.png);
+			margin-bottom: 5px;
+			padding-right: 8px;
+		}
+		.text12-clz {
+			margin-left: 0px;
+			color: #e5e5e5;
+			font-size: 11px !important;
+			margin-top: 5px;
+			margin-bottom: 0px;
+			margin-right: 0px;
+		}
+		.flex9-clz {
+			padding-top: 5px;
+			z-index: 100;
+			color: #ffffff;
+			font-weight: bold;
+			padding-left: 5px;
+			font-size: 14px !important;
+			padding-bottom: 5px;
+			height: 80px;
+			padding-right: 5px;
+		}
+		.flex10-clz {
+			padding-top: 8px;
+			border-bottom-left-radius: 6px;
+			z-index: 100;
+			background-size: cover;
+			padding-left: 8px;
+			padding-bottom: 8px;
+			border-top-right-radius: 6px;
+			margin-right: 5px;
+			margin-left: 5px;
+			overflow: hidden;
+			flex: 1;
+			border-top-left-radius: 6px;
+			margin-top: 5px;
+			border-bottom-right-radius: 6px;
+			background-image: url(/static/916f05db-9c0a-4db3-97a6-168e070847c1.png);
+			margin-bottom: 5px;
+			padding-right: 8px;
+		}
+		.text14-clz {
+			margin-left: 0px;
+			color: #e5e5e5;
+			font-size: 11px !important;
+			margin-top: 5px;
+			margin-bottom: 0px;
+			margin-right: 0px;
+		}
+		.flex15-clz {
+			padding-top: 8px;
+			border-bottom-left-radius: 6px;
+			z-index: 100;
+			background-size: cover;
+			padding-left: 8px;
+			padding-bottom: 8px;
+			border-top-right-radius: 6px;
+			margin-right: 5px;
+			margin-left: 5px;
+			overflow: hidden;
+			flex: 1;
+			border-top-left-radius: 6px;
+			margin-top: 5px;
+			border-bottom-right-radius: 6px;
+			background-image: url(/static/cfe2af9f-9039-49d4-9ab6-47c976712d90.png);
+			margin-bottom: 5px;
+			padding-right: 8px;
+		}
+		.text16-clz {
+			margin-left: 0px;
+			color: #e5e5e5;
+			font-size: 11px !important;
+			margin-top: 5px;
+			margin-bottom: 0px;
+			margin-right: 0px;
+		}
+		.flex16-clz {
+			padding-top: 8px;
+			border-bottom-left-radius: 6px;
+			z-index: 100;
+			background-size: cover;
+			padding-left: 8px;
+			padding-bottom: 8px;
+			border-top-right-radius: 6px;
+			margin-right: 5px;
+			margin-left: 5px;
+			overflow: hidden;
+			flex: 1;
+			border-top-left-radius: 6px;
+			margin-top: 5px;
+			border-bottom-right-radius: 6px;
+			background-image: url(/static/6ae393e9-9d10-4664-a6dd-dab7ebfc6c1d.png);
+			margin-bottom: 5px;
+			padding-right: 8px;
+		}
+		.text18-clz {
+			margin-left: 0px;
+			color: #e5e5e5;
+			font-size: 11px !important;
+			margin-top: 5px;
+			margin-bottom: 0px;
+			margin-right: 0px;
+		}
+		.flex14-clz {
+			padding-top: 8px;
+			padding-left: 8px;
+			padding-bottom: 8px;
+			padding-right: 8px;
+		}
+		.flex17-clz {
+			font-weight: bold;
+			font-size: 14px !important;
+		}
+		.flex1-clz {
+			background-color: #ee0000;
+			padding-top: 13px;
+			color: #ffffff;
+			padding-left: 20px;
+			padding-bottom: 13px;
+			text-align: center;
+			padding-right: 20px;
+		}
+		.text4-clz {
+			font-weight: bold;
+		}
+		.icon {
+			font-size: 20px;
+		}
+		.image1-size {
+			height: 48px !important;
+			width: 48px !important;
+		}
+		.flex19-clz {
+			margin-left: 0px;
+			border: 1px solid #ee0000;
+			padding-top: 8px;
+			padding-left: 8px;
+			width: 100% !important;
+			font-size: 14px !important;
+			padding-bottom: 8px;
+			line-height: 2;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			margin-right: 0px;
+			padding-right: 8px;
+		}
+		.flex20-clz {
+			font-weight: bold;
+			font-size: 14px !important;
+		}
+		.flex21-clz {
+			background-color: #ee0000;
+			padding-top: 13px;
+			color: #ffffff;
+			padding-left: 20px;
+			padding-bottom: 13px;
+			padding-right: 20px;
+		}
+		.icon1 {
+			font-size: 20px;
+		}
+		.text22-clz {
+			font-weight: bold;
+		}
+		.image2-size {
+			height: 48px !important;
+			width: 48px !important;
+		}
+		.flex22-clz {
+			margin-left: 0px;
+			border: 1px solid #ee0000;
+			padding-top: 8px;
+			padding-left: 8px;
+			width: 100% !important;
+			font-size: 14px !important;
+			padding-bottom: 8px;
+			line-height: 2;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			margin-right: 0px;
+			padding-right: 8px;
+		}
+		.container22215 {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+		.container22215 {
+			padding-top: 45px;
+			padding-bottom: 80px;
+		}
+	</style>
+</html>

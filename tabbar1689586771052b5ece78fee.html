@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>tabbar2</title>
+		<link rel="stylesheet" href="common/vant.min.css" />
+		<script src="common/vue.js"></script>
+		<script src="common/vant.min.js"></script>
+		<script src="common/axios.min.js"></script>
+		<script src="common/Session.js"></script>
+		<script src="common/Tools.js"></script>
+		<script src="common/Validate.js"></script>
+		<script src="common/Page.js"></script>
+		<script src="common/Http.js"></script>
+		<script src="common/index.umd.js"></script>
+		<link rel="stylesheet" href="common/diygw-ui/index.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="container container22215">
+				<div class="diygw-col-24 text-clz">欢迎使用</div>
+				<div class="diygw-col-24 text1-clz">DIY可视化管理系统</div>
+				<van-form @submit="submitForm" class="flex diygw-form flex-direction-column diygw-col-24">
+					<div class="diygw-form-item diygw-col-24 phone-clz">
+						<div class="input">
+							<span open-type="getPhoneNumber" @getphonenumber="getPhoneNumberFunction" class="diygw-text-lg diy-icon-mobilefill" style="color: #636363"></span>
+							<van-field
+								class="flex1"
+								:rules="[
+				{
+					required: true,
+				    message:'手机号不能为空'
+				}
+		    ,
+	]"
+								name="phone"
+								comfirm-type="done"
+								type="text"
+								v-model="form.phone"
+								placeholder="请输入手机号"
+							></van-field>
+						</div>
+					</div>
+					<div v-if="globalData.logintype!='1'" class="diygw-form-item diygw-col-24 password-clz">
+						<div class="input">
+							<span class="diygw-text-lg diy-icon-lock" style="color: #636363"></span>
+							<van-field
+								class="flex1"
+								:rules="[
+				{
+					required: true,
+				    message:'密码不能为空'
+				}
+	]"
+								name="password"
+								comfirm-type="done"
+								type="password"
+								v-model="form.password"
+								placeholder="请输入密码"
+							></van-field>
+						</div>
+					</div>
+					<div v-if="globalData.logintype=='1'" class="diygw-form-item diygw-col-24 code-clz">
+						<div class="input">
+							<span @click="navigateTo" data-type="sendMsgFunction" class="diygw-text-lg diy-icon-lock" style="color: #636363"></span>
+							<van-field
+								class="flex1"
+								:rules="[
+				{
+					required: true,
+				    message:'验证码不能为空'
+				}
+	]"
+								name="code"
+								comfirm-type="done"
+								type="text"
+								v-model="form.code"
+								placeholder="请输入验证码"
+							></van-field>
+							<div @click="getFormCodeCode" class="diygw-tag radius-xs gradual-red">{{formData.codeTag}}</div>
+						</div>
+					</div>
+					<div class="flex diygw-col-24 justify-between flex-nowrap flex1-clz">
+						<div class="flex flex-wrap diygw-col-0" @click="navigateTo" data-type="page" data-url="/pages/null" data-redirect="1">
+							<div class="diygw-col-0">还没有账号？</div>
+							<div class="diygw-col-0 text2-clz">注册</div>
+						</div>
+						<div @click="navigateTo" data-type="codeFunction" class="diygw-col-0 text5-clz">{{globalData.logintype=='1'?'密码登录':'验证码登录'}}</div>
+					</div>
+					<div form-type="submit" class="diygw-col-24 gradual-red text4-clz">登录</div>
+					<div class="flex flex-wrap diygw-col-0 items-center flex3-clz">
+						<div class="flex flex-wrap diygw-col-0 items-center" @click="navigateTo" data-type="agreeFunction">
+							<span v-if="globalData.agree=='1'" class="flex icon3 diygw-col-0 icon3-clz diy-icon-roundcheck"></span>
+							<span v-if="globalData.agree!='1'" class="flex icon2 diygw-col-0 icon2-clz diy-icon-round"></span>
+							<div class="diygw-col-0">登录即同意并接受</div>
+						</div>
+						<div @click="navigateTo" data-type="page" data-url="/pages/null" data-newstype="privacy" class="diygw-col-0 text11-clz">《隐私权政策》</div>
+						<div class="diygw-col-0">和</div>
+						<div @click="navigateTo" data-type="page" data-url="/pages/null" data-newstype="user" class="diygw-col-0 text13-clz">《用户协议》</div>
+					</div>
+				</van-form>
+				<!-- #ifdef  -->
+				<div class="flex flex-wrap diygw-col-24 flex-direction-column">
+					<div class="flex flex-wrap diygw-col-24 items-center flex2-clz" @click="navigateTo" data-type="agreeFunction">
+						<div class="flex diygw-col-0 line-clz">
+							<div class="diygw-pzx" style="border-bottom: 1px solid #eee"></div>
+						</div>
+						<div class="diygw-col-0 text6-clz">第三方登录</div>
+						<div class="flex diygw-col-0 line1-clz">
+							<div class="diygw-pzx" style="border-bottom: 1px solid #eee"></div>
+						</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-24 justify-around items-center flex4-clz">
+						<img src="./static/wx1.png" class="image-size diygw-image diygw-col-0" mode="widthFix" />
+						<img src="./static/zfb.png" class="image2-size diygw-image diygw-col-0" mode="widthFix" />
+						<img src="./static/wb.png" class="image1-size diygw-image diygw-col-0" mode="widthFix" />
+					</div>
+				</div>
+				<!--  #endif -->
+				<div class="version text-grey flex-direction-column flex diygw-col-24 justify-center align-center">
+					<div>DIY官网代码生成器生成</div>
+					<div>http://www.diygw.com</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</body>
+	<script type="module">
+		const app = Vue.createApp({
+			data() {
+				return {
+					globalData: { logintype: '0', agree: '0' },
+					form: {
+						phone: '',
+						password: '',
+						code: ''
+					},
+					formData: {
+						phoneFocus: false,
+						passwordFocus: false,
+						codeFocus: false,
+						codeTag: '获取验证码',
+						codeFlag: false
+					}
+				};
+			},
+			created() {
+				this.init();
+			},
+			methods: {
+				async init() {
+					await this.initResetform();
+				},
+				// agree 自定义方法
+				async agreeFunction(param) {
+					let thiz = this;
+					//如果不同意，改为同意
+					this.globalData.agree = this.globalData.agree == '1' ? '0' : '1';
+				},
+
+				// code 自定义方法
+				async codeFunction(param) {
+					let thiz = this;
+					//如果1表示验证码登录，0表进密码登录
+					this.globalData.logintype = this.globalData.logintype == '1' ? '0' : '1';
+				},
+
+				// sendMsg 自定义方法
+				async sendMsgFunction(param) {
+					let thiz = this;
+					this.formData.codeFlag = false;
+					if (!this.form.phone) {
+						this.showToast('手机号码不能为空');
+						//不给发送验证码
+						this.formData.codeFlag = false;
+						return;
+					}
+					let pattern = /^1[3-9]\d{9}$/;
+					if (!pattern.test(this.form.phone)) {
+						this.showToast('手机号码输入有误');
+						//不给发送验证码
+						this.formData.codeFlag = false;
+						return;
+					}
+					let http_url = '';
+					//配置后可删除下面的判断
+					if (!http_url) {
+						this.showToast('默认发送短信验证地址，配置后可删除此判断');
+						return;
+					}
+					let http_data = {
+						phone: this.form.phone
+					};
+					let http_header = {};
+					let data = await this.$http.post(http_url, http_data, http_header, 'json');
+					if (data.code == 0) {
+						this.showToast(data.msg);
+						return;
+					} else {
+						//修改为true
+						this.formData.codeFlag = true;
+						this.$refs.codeCodeRef.start();
+						this.showToast('验证码已发送');
+					}
+				},
+				getFormCodeCode() {
+					//如果已点击，请等待
+					if (this.formData.codeFlag) {
+						return true;
+					}
+					this.formData.codeFlag = true;
+					this.navigateTo({ type: 'sendMsgFunction' });
+
+					if (this.formData.codeFlag) {
+						let secNum = 60;
+						let changeTag = 'X秒重新获取';
+						let timer = setInterval(() => {
+							if (--secNum) {
+								this.formData.codeTag = changeTag.replace(/x|X/, secNum);
+							} else {
+								this.formData.codeTag = '重新获取';
+								this.formData.codeFlag = false;
+								clearInterval(timer);
+							}
+						}, 1000);
+					} else {
+						this.formData.codeFlag = false;
+					}
+				},
+				initResetform() {
+					this.initform = JSON.stringify(this.form);
+				},
+				resetForm() {
+					this.form = JSON.parse(this.initform);
+				},
+
+				async submitForm(e) {
+					this.validateForm = this.Validate({
+						phone: {
+							required: {
+								message: '手机号不能为空'
+							},
+							tel: {
+								message: '请输入11位的手机号码'
+							}
+						},
+						password: {
+							required: {
+								message: '密码不能为空'
+							}
+						},
+						code: {
+							required: {
+								message: '验证码不能为空'
+							}
+						}
+					});
+					if (!this.validateForm.checkForm(e)) {
+						let data = this.validateForm.errorList[0];
+						this.showToast(data.msg, 'none');
+						return false;
+					} else {
+						//保存数据
+						let param = e;
+						let url = '/apps/login/login';
+						let header = {};
+						if (this.globalData.agree != '1') {
+							this.showToast('请点击同意授权协议');
+							return;
+						}
+						param.logintype = this.globalData.logintype;
+						let res = await this.$http.post(url, param, header, 'json');
+						if (res.code == 200) {
+							this.$session.setUser(res.data);
+							this.showToast(res.msg, 'success');
+							this.navigateTo({
+								type: 'page',
+								url: 'index'
+							});
+						} else {
+							this.showToast(res.msg, 'error');
+						}
+						if (res.code == 200) {
+							this.showToast(res.msg, 'success');
+						} else {
+							this.showToast(res.msg, 'error');
+						}
+					}
+				}
+			}
+		});
+		app.use(vant);
+		app.use(DiygwLib);
+		app.config.globalProperties.$tools = new Tools();
+		app.config.globalProperties.$http = httpService;
+		app.config.globalProperties.$session = Session;
+		app.mixin({
+			methods: {
+				Validate,
+				setData,
+				navigateTo,
+				showModal,
+				showToast,
+				uploadImage
+			}
+		});
+		app.mount('#app');
+	</script>
+	<style>
+		.text-clz {
+			margin-left: 5px;
+			padding-top: 90px;
+			font-weight: bold;
+			padding-left: 10px;
+			width: calc(100% - 5px - 5px) !important;
+			font-size: 16px !important;
+			padding-bottom: 5px;
+			margin-top: 5px;
+			margin-bottom: 0px;
+			margin-right: 5px;
+			padding-right: 10px;
+		}
+		.text1-clz {
+			margin-left: 5px;
+			padding-top: 5px;
+			font-weight: bold;
+			padding-left: 10px;
+			width: calc(100% - 5px - 5px) !important;
+			font-size: 16px !important;
+			padding-bottom: 5px;
+			margin-top: 0px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+			padding-right: 10px;
+		}
+		.phone-clz {
+			margin-left: 5px;
+			width: calc(100% - 5px - 5px) !important;
+			font-size: 14px !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.password-clz {
+			margin-left: 5px;
+			width: calc(100% - 5px - 5px) !important;
+			font-size: 14px !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.code-clz {
+			margin-left: 5px;
+			width: calc(100% - 5px - 5px) !important;
+			font-size: 14px !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.flex1-clz {
+			padding-top: 8px;
+			padding-left: 15px;
+			padding-bottom: 8px;
+			padding-right: 15px;
+		}
+		.text2-clz {
+			color: #fe0500;
+		}
+		.text5-clz {
+			color: #fe0500;
+		}
+		.text4-clz {
+			padding-top: 10px;
+			border-bottom-left-radius: 60px;
+			color: #ffffff;
+			font-weight: bold;
+			letter-spacing: 3px;
+			padding-left: 5px;
+			font-size: 16px !important;
+			padding-bottom: 10px;
+			border-top-right-radius: 60px;
+			margin-right: 15px;
+			margin-left: 15px;
+			box-shadow: 0px 3px 7px rgba(248, 2, 2, 0.35);
+			overflow: hidden;
+			width: calc(100% - 15px - 15px) !important;
+			border-top-left-radius: 60px;
+			margin-top: 5px;
+			border-bottom-right-radius: 60px;
+			margin-bottom: 5px;
+			text-align: center;
+			padding-right: 5px;
+		}
+		.flex3-clz {
+			padding-top: 8px;
+			padding-left: 15px;
+			padding-bottom: 8px;
+			padding-right: 15px;
+		}
+		.icon3-clz {
+			color: #fe0500;
+		}
+		.icon3 {
+			font-size: 20px;
+		}
+		.icon2-clz {
+			color: #fe0500;
+		}
+		.icon2 {
+			font-size: 20px;
+		}
+		.text11-clz {
+			color: #fe0500;
+		}
+		.text13-clz {
+			color: #fe0500;
+		}
+		.flex2-clz {
+			margin-left: 5px;
+			padding-top: 8px;
+			padding-left: 15px;
+			width: calc(100% - 5px - 5px) !important;
+			padding-bottom: 8px;
+			margin-top: 15px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+			padding-right: 15px;
+		}
+		.line-clz {
+			flex: 1;
+		}
+		.text6-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.line1-clz {
+			flex: 1;
+		}
+		.flex4-clz {
+			padding-top: 8px;
+			padding-left: 15px;
+			padding-bottom: 8px;
+			padding-right: 15px;
+		}
+		.image-size {
+			height: 40px !important;
+			width: 40px !important;
+		}
+		.image2-size {
+			height: 40px !important;
+			width: 40px !important;
+		}
+		.image1-size {
+			height: 40px !important;
+			width: 40px !important;
+		}
+		.container22215 {
+			padding-left: 0px;
+			padding-right: 0px;
+
+			background-image: url(/static/mbz704.png);
+			background-position: top center;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+		.container22215 {
+		}
+	</style>
+</html>

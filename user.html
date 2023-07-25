@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>games</title>
+		<link rel="stylesheet" href="common/vant.min.css" />
+		<script src="common/vue.js"></script>
+		<script src="common/vant.min.js"></script>
+		<script src="common/axios.min.js"></script>
+		<script src="common/Session.js"></script>
+		<script src="common/Tools.js"></script>
+		<script src="common/Validate.js"></script>
+		<script src="common/Page.js"></script>
+		<script src="common/Http.js"></script>
+		<script src="common/index.umd.js"></script>
+		<link rel="stylesheet" href="common/diygw-ui/index.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="container container22215">
+				<div class="diygw-title diygw-top solid-bottom" style="color: white; background: #ff36b2">
+					<div class="title flex1 text-center">games</div>
+				</div>
+				<div class="flex diygw-col-24 diygw-bottom pink bar-clz">
+					<div class="diygw-grid diygw-actions">
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size: 26px">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid1.png" />
+								</div>
+								<div class="diygw-grid-title">หน้าหลัก</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size: 26px">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid2.png" />
+								</div>
+								<div class="diygw-grid-title">เกม</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size: 26px">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid3.png" />
+								</div>
+								<div class="diygw-grid-title">โปรโมชั่น</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size: 26px">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid4.png" />
+								</div>
+								<div class="diygw-grid-title">ข้อมูล</div>
+							</div>
+						</button>
+					</div>
+				</div>
+				<div class="flex flex-wrap diygw-col-24">
+					<div class="flex flex-wrap diygw-col-12 flex-direction-column flex1-clz">
+						<div v-for="(item,index) in globalData.leftList" :key="index" class="flex flex-wrap diygw-col-24 flex-direction-column flex2-clz">
+							<img :src="item.img" class="response diygw-col-24 image-clz" mode="widthFix" />
+							<div class="diygw-text-line1 diygw-col-24 text-clz diygw-text-md">{{item.title}}</div>
+							<div class="flex flex-wrap diygw-col-24">
+								<div v-for="(tagItem,tagIndex) in item.tags" :key="tagIndex" class="diygw-text-line1 diygw-col-0 cyan text1-clz diygw-text-sm" :class="[tagIndex==0?'tag-bg':'']">{{tagItem}}</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-12 flex-direction-column flex5-clz">
+						<div v-for="(item,index) in globalData.leftList" :key="index" class="flex flex-wrap diygw-col-24 flex-direction-column flex6-clz">
+							<img :src="item.img" class="response diygw-col-24 image1-clz" mode="widthFix" />
+							<div class="diygw-text-line1 diygw-col-24 text2-clz diygw-text-md">{{item.title}}</div>
+							<div class="flex flex-wrap diygw-col-24">
+								<div v-for="(tagItem,tagIndex) in item.tags" :key="tagIndex" class="diygw-text-line1 diygw-col-0 cyan text3-clz diygw-text-sm" :class="[tagIndex==0?'tag-bg':'']">{{tagItem}}</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-12 flex-direction-column flex25-clz">
+						<div v-for="(item,index) in globalData.leftList" :key="index" class="flex flex-wrap diygw-col-24 flex-direction-column flex26-clz">
+							<img :src="item.img" class="response diygw-col-24 image7-clz" mode="widthFix" />
+							<div class="diygw-text-line1 diygw-col-24 text14-clz diygw-text-md">{{item.title}}</div>
+							<div class="flex flex-wrap diygw-col-24">
+								<div v-for="(tagItem,tagIndex) in item.tags" :key="tagIndex" class="diygw-text-line1 diygw-col-0 cyan text15-clz diygw-text-sm" :class="[tagIndex==0?'tag-bg':'']">{{tagItem}}</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-12 flex-direction-column flex22-clz">
+						<div v-for="(item,index) in globalData.leftList" :key="index" class="flex flex-wrap diygw-col-24 flex-direction-column flex23-clz">
+							<img :src="item.img" class="response diygw-col-24 image6-clz" mode="widthFix" />
+							<div class="diygw-text-line1 diygw-col-24 text12-clz diygw-text-md">{{item.title}}</div>
+							<div class="flex flex-wrap diygw-col-24">
+								<div v-for="(tagItem,tagIndex) in item.tags" :key="tagIndex" class="diygw-text-line1 diygw-col-0 cyan text13-clz diygw-text-sm" :class="[tagIndex==0?'tag-bg':'']">{{tagItem}}</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-12 flex-direction-column flex16-clz">
+						<div v-for="(item,index) in globalData.leftList" :key="index" class="flex flex-wrap diygw-col-24 flex-direction-column flex17-clz">
+							<img :src="item.img" class="response diygw-col-24 image4-clz" mode="widthFix" />
+							<div class="diygw-text-line1 diygw-col-24 text8-clz diygw-text-md">{{item.title}}</div>
+							<div class="flex flex-wrap diygw-col-24">
+								<div v-for="(tagItem,tagIndex) in item.tags" :key="tagIndex" class="diygw-text-line1 diygw-col-0 cyan text9-clz diygw-text-sm" :class="[tagIndex==0?'tag-bg':'']">{{tagItem}}</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-12 flex-direction-column flex19-clz">
+						<div v-for="(item,index) in globalData.leftList" :key="index" class="flex flex-wrap diygw-col-24 flex-direction-column flex20-clz">
+							<img :src="item.img" class="response diygw-col-24 image5-clz" mode="widthFix" />
+							<div class="diygw-text-line1 diygw-col-24 text10-clz diygw-text-md">{{item.title}}</div>
+							<div class="flex flex-wrap diygw-col-24">
+								<div v-for="(tagItem,tagIndex) in item.tags" :key="tagIndex" class="diygw-text-line1 diygw-col-0 cyan text11-clz diygw-text-sm" :class="[tagIndex==0?'tag-bg':'']">{{tagItem}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex flex-wrap diygw-col-24">
+					<div class="flex flex-wrap diygw-col-12 flex-direction-column flex9-clz">
+						<div v-for="(item,index) in globalData.leftList" :key="index" class="flex flex-wrap diygw-col-24 flex-direction-column flex10-clz">
+							<img :src="item.img" class="response diygw-col-24 image2-clz" mode="widthFix" />
+							<div class="diygw-text-line1 diygw-col-24 text4-clz diygw-text-md">{{item.title}}</div>
+							<div class="flex flex-wrap diygw-col-24">
+								<div v-for="(tagItem,tagIndex) in item.tags" :key="tagIndex" class="diygw-text-line1 diygw-col-0 cyan text5-clz diygw-text-sm" :class="[tagIndex==0?'tag-bg':'']">{{tagItem}}</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-12 flex-direction-column flex12-clz">
+						<div v-for="(item,index) in globalData.leftList" :key="index" class="flex flex-wrap diygw-col-24 flex-direction-column flex13-clz">
+							<img :src="item.img" class="response diygw-col-24 image3-clz" mode="widthFix" />
+							<div class="diygw-text-line1 diygw-col-24 text6-clz diygw-text-md">{{item.title}}</div>
+							<div class="flex flex-wrap diygw-col-24">
+								<div v-for="(tagItem,tagIndex) in item.tags" :key="tagIndex" class="diygw-text-line1 diygw-col-0 cyan text7-clz diygw-text-sm" :class="[tagIndex==0?'tag-bg':'']">{{tagItem}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="version text-grey flex-direction-column flex diygw-col-24 justify-center align-center">
+					<div>DIY官网代码生成器生成</div>
+					<div>http://www.diygw.com</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</body>
+	<script type="module">
+		const app = Vue.createApp({
+			data() {
+				return {
+					globalData: { leftList: [], rightList: [] },
+					result: {
+						code: 0,
+						msg: '',
+						rows: [
+							{
+								title: '',
+								shop: '',
+								price: 0,
+								tags: ['自营', '放心购'],
+								img: ''
+							}
+						]
+					}
+				};
+			},
+			created() {
+				this.init();
+			},
+			methods: {
+				async init() {
+					await this.resultApi();
+				},
+				// 无限加载API API请求方法
+				async resultApi(param) {
+					param = param || {};
+					let result = await this.$http.post('https://php.diygw.com/article1.php', {}, {}, 'json');
+
+					this.setData({ result });
+
+					result.rows.forEach((item, index) => {
+						if (index % 2 == 0) {
+							this.globalData.leftList.push(item);
+						} else {
+							this.globalData.rightList.push(item);
+						}
+					});
+				}
+			}
+		});
+		app.use(vant);
+		app.use(DiygwLib);
+		app.config.globalProperties.$tools = new Tools();
+		app.config.globalProperties.$http = httpService;
+		app.config.globalProperties.$session = Session;
+		app.mixin({
+			methods: {
+				Validate,
+				setData,
+				navigateTo,
+				showModal,
+				showToast,
+				uploadImage
+			}
+		});
+		app.mount('#app');
+	</script>
+	<style>
+		.bar-clz {
+			text-align: center;
+		}
+		.flex1-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex2-clz {
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			margin-right: 0px;
+			margin-left: 0px;
+			box-shadow: 0px 1px 6px 4px rgba(75, 75, 75, 0.1);
+			overflow: hidden;
+			width: 100% !important;
+			border-top-left-radius: 6px;
+			margin-top: 0px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 12px;
+			padding-right: 5px;
+		}
+		.image-clz {
+			border-bottom-left-radius: 6px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+			border-bottom-right-radius: 6px;
+		}
+		.text-clz {
+			padding-top: 5px;
+			font-weight: bold;
+			padding-left: 0px;
+			padding-bottom: 5px;
+			text-align: center;
+			padding-right: 0px;
+		}
+		.text1-clz {
+			border: 1px solid #07c160;
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			color: #07c160;
+			font-weight: bold;
+			padding-left: 8px;
+			font-size: 14px !important;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			background-position: center center;
+			margin-right: 0px;
+			margin-left: 50px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			margin-top: 5px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 5px;
+			text-align: center;
+			padding-right: 8px;
+		}
+		.flex5-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex6-clz {
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			margin-right: 0px;
+			margin-left: 0px;
+			box-shadow: 0px 1px 6px 4px rgba(75, 75, 75, 0.1);
+			overflow: hidden;
+			width: 100% !important;
+			border-top-left-radius: 6px;
+			margin-top: 0px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 12px;
+			padding-right: 5px;
+		}
+		.image1-clz {
+			border-bottom-left-radius: 6px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+			border-bottom-right-radius: 6px;
+		}
+		.text2-clz {
+			padding-top: 5px;
+			font-weight: bold;
+			padding-left: 0px;
+			padding-bottom: 5px;
+			text-align: center;
+			padding-right: 0px;
+		}
+		.text3-clz {
+			border: 1px solid #07c160;
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			color: #07c160;
+			font-weight: bold;
+			padding-left: 8px;
+			font-size: 14px !important;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			background-position: center center;
+			margin-right: 0px;
+			margin-left: 50px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			margin-top: 5px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 5px;
+			text-align: center;
+			padding-right: 8px;
+		}
+		.flex25-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex26-clz {
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			margin-right: 0px;
+			margin-left: 0px;
+			box-shadow: 0px 1px 6px 4px rgba(75, 75, 75, 0.1);
+			overflow: hidden;
+			width: 100% !important;
+			border-top-left-radius: 6px;
+			margin-top: 0px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 12px;
+			padding-right: 5px;
+		}
+		.image7-clz {
+			border-bottom-left-radius: 6px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+			border-bottom-right-radius: 6px;
+		}
+		.text14-clz {
+			padding-top: 5px;
+			font-weight: bold;
+			padding-left: 0px;
+			padding-bottom: 5px;
+			text-align: center;
+			padding-right: 0px;
+		}
+		.text15-clz {
+			border: 1px solid #07c160;
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			color: #07c160;
+			font-weight: bold;
+			padding-left: 8px;
+			font-size: 14px !important;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			background-position: center center;
+			margin-right: 0px;
+			margin-left: 50px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			margin-top: 5px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 5px;
+			text-align: center;
+			padding-right: 8px;
+		}
+		.flex22-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex23-clz {
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			margin-right: 0px;
+			margin-left: 0px;
+			box-shadow: 0px 1px 6px 4px rgba(75, 75, 75, 0.1);
+			overflow: hidden;
+			width: 100% !important;
+			border-top-left-radius: 6px;
+			margin-top: 0px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 12px;
+			padding-right: 5px;
+		}
+		.image6-clz {
+			border-bottom-left-radius: 6px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+			border-bottom-right-radius: 6px;
+		}
+		.text12-clz {
+			padding-top: 5px;
+			font-weight: bold;
+			padding-left: 0px;
+			padding-bottom: 5px;
+			text-align: center;
+			padding-right: 0px;
+		}
+		.text13-clz {
+			border: 1px solid #07c160;
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			color: #07c160;
+			font-weight: bold;
+			padding-left: 8px;
+			font-size: 14px !important;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			background-position: center center;
+			margin-right: 0px;
+			margin-left: 50px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			margin-top: 5px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 5px;
+			text-align: center;
+			padding-right: 8px;
+		}
+		.flex16-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex17-clz {
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			margin-right: 0px;
+			margin-left: 0px;
+			box-shadow: 0px 1px 6px 4px rgba(75, 75, 75, 0.1);
+			overflow: hidden;
+			width: 100% !important;
+			border-top-left-radius: 6px;
+			margin-top: 0px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 12px;
+			padding-right: 5px;
+		}
+		.image4-clz {
+			border-bottom-left-radius: 6px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+			border-bottom-right-radius: 6px;
+		}
+		.text8-clz {
+			padding-top: 5px;
+			font-weight: bold;
+			padding-left: 0px;
+			padding-bottom: 5px;
+			text-align: center;
+			padding-right: 0px;
+		}
+		.text9-clz {
+			border: 1px solid #07c160;
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			color: #07c160;
+			font-weight: bold;
+			padding-left: 8px;
+			font-size: 14px !important;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			background-position: center center;
+			margin-right: 0px;
+			margin-left: 50px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			margin-top: 5px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 5px;
+			text-align: center;
+			padding-right: 8px;
+		}
+		.flex19-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex20-clz {
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			margin-right: 0px;
+			margin-left: 0px;
+			box-shadow: 0px 1px 6px 4px rgba(75, 75, 75, 0.1);
+			overflow: hidden;
+			width: 100% !important;
+			border-top-left-radius: 6px;
+			margin-top: 0px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 12px;
+			padding-right: 5px;
+		}
+		.image5-clz {
+			border-bottom-left-radius: 6px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+			border-bottom-right-radius: 6px;
+		}
+		.text10-clz {
+			padding-top: 5px;
+			font-weight: bold;
+			padding-left: 0px;
+			padding-bottom: 5px;
+			text-align: center;
+			padding-right: 0px;
+		}
+		.text11-clz {
+			border: 1px solid #07c160;
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			color: #07c160;
+			font-weight: bold;
+			padding-left: 8px;
+			font-size: 14px !important;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			background-position: center center;
+			margin-right: 0px;
+			margin-left: 50px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			margin-top: 5px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 5px;
+			text-align: center;
+			padding-right: 8px;
+		}
+		.flex9-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex10-clz {
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			margin-right: 0px;
+			margin-left: 0px;
+			box-shadow: 0px 1px 6px 4px rgba(75, 75, 75, 0.1);
+			overflow: hidden;
+			width: 100% !important;
+			border-top-left-radius: 6px;
+			margin-top: 0px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 12px;
+			padding-right: 5px;
+		}
+		.image2-clz {
+			border-bottom-left-radius: 6px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+			border-bottom-right-radius: 6px;
+		}
+		.text4-clz {
+			padding-top: 5px;
+			font-weight: bold;
+			padding-left: 0px;
+			padding-bottom: 5px;
+			text-align: center;
+			padding-right: 0px;
+		}
+		.text5-clz {
+			border: 1px solid #07c160;
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			color: #07c160;
+			font-weight: bold;
+			padding-left: 8px;
+			font-size: 14px !important;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			background-position: center center;
+			margin-right: 0px;
+			margin-left: 50px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			margin-top: 5px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 5px;
+			text-align: center;
+			padding-right: 8px;
+		}
+		.flex12-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex13-clz {
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			margin-right: 0px;
+			margin-left: 0px;
+			box-shadow: 0px 1px 6px 4px rgba(75, 75, 75, 0.1);
+			overflow: hidden;
+			width: 100% !important;
+			border-top-left-radius: 6px;
+			margin-top: 0px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 12px;
+			padding-right: 5px;
+		}
+		.image3-clz {
+			border-bottom-left-radius: 6px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+			border-bottom-right-radius: 6px;
+		}
+		.text6-clz {
+			padding-top: 5px;
+			font-weight: bold;
+			padding-left: 0px;
+			padding-bottom: 5px;
+			text-align: center;
+			padding-right: 0px;
+		}
+		.text7-clz {
+			border: 1px solid #07c160;
+			padding-top: 5px;
+			border-bottom-left-radius: 6px;
+			color: #07c160;
+			font-weight: bold;
+			padding-left: 8px;
+			font-size: 14px !important;
+			padding-bottom: 5px;
+			border-top-right-radius: 6px;
+			background-position: center center;
+			margin-right: 0px;
+			margin-left: 50px;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			margin-top: 5px;
+			border-bottom-right-radius: 6px;
+			margin-bottom: 5px;
+			text-align: center;
+			padding-right: 8px;
+		}
+		.container22215 {
+			padding-left: 0px;
+			padding-right: 0px;
+
+			font-size: 10px;
+			color: #404040;
+		}
+		.tag-bg {
+			background: #07c160 !important;
+			color: #fff !important;
+		}
+		.container22215 {
+			padding-top: 45px;
+			padding-bottom: 80px;
+		}
+	</style>
+</html>

@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>buttonbar</title>
+		<link rel="stylesheet" href="common/vant.min.css" />
+		<script src="common/vue.js"></script>
+		<script src="common/vant.min.js"></script>
+		<script src="common/axios.min.js"></script>
+		<script src="common/Session.js"></script>
+		<script src="common/Tools.js"></script>
+		<script src="common/Validate.js"></script>
+		<script src="common/Page.js"></script>
+		<script src="common/Http.js"></script>
+		<script src="common/index.umd.js"></script>
+		<link rel="stylesheet" href="common/diygw-ui/index.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="container container22215">
+				<div class="diygw-title diygw-top pink">
+					<i onclick="location.href='buttonbar.html'" class="title-bar-icon diy-icon-home margin-left"></i>
+					<div class="title flex1 text-center textindent30">Header</div>
+				</div>
+				<div class="diygw-title diygw-top pink">
+					<i onclick="location.href='buttonbar.html'" class="title-bar-icon diy-icon-home margin-left"></i>
+					<div class="title flex1 text-center textindent30">Header</div>
+				</div>
+				<div class="flex diygw-col-24 flex-direction-column">
+					<div class="diygw-tabs text-center justify-center scale-title small-border tabs-title">
+						<div class="diygw-tab-item tabs-item-title" :class="index==tabsIndex?' cur text-green ':''" v-for="(item,index) in  tabsDatas" :key="index" @click="changeTabs" :data-index="index"><span v-if="item.icon" :class="item.icon"></span> {{item.text}}</div>
+					</div>
+				</div>
+				<!-- #ifdef  -->
+				<div class="flex diygw-col-24 swiper-clz">
+					<van-swipe class="swiper" indicator-color="rgba(51, 51, 51, 0.39)" indicator-active-color="#fff" indicator-dots="true" autoplay="3000" interval="3000" circular="true" style="height: 180px">
+						<van-swipe-item class="diygw-swiper-item">
+							<div class="diygw-swiper-item-wrap">
+								<img src="./static/eventfb.png" class="diygw-swiper-image" />
+							</div>
+						</van-swipe-item>
+						<van-swipe-item class="diygw-swiper-item">
+							<div class="diygw-swiper-item-wrap">
+								<img src="./static/u71.png" class="diygw-swiper-image" />
+							</div>
+						</van-swipe-item>
+						<van-swipe-item class="diygw-swiper-item">
+							<div class="diygw-swiper-item-wrap">
+								<img src="./static/u19.png" class="diygw-swiper-image" />
+							</div>
+						</van-swipe-item>
+					</van-swipe>
+				</div>
+				<!--  #endif -->
+				<scroll-view @scrolltoupper="scrolltoupperFlex1" @scrolltolower="scrolltolowerFlex1" scroll-x scroll-with-animation class="flex scroll-view flex-wrap diygw-col-24">
+					<div class="flex flex-nowrap">
+						<div class="flex flex-wrap diygw-col-0 flex-direction-column items-center flex5-clz">
+							<img src="./static/kt.png" class="image4-size diygw-image diygw-col-0 image4-clz" mode="widthFix" />
+							<div class="diygw-text-line1 diygw-col-0 red text8-clz">สด</div>
+							<div class="diygw-col-24 text9-clz diygw-ellipsis">บราซิล</div>
+						</div>
+						<div class="flex flex-wrap diygw-col-0 flex-direction-column items-center flex-clz">
+							<img src="./static/kt.png" class="image-size diygw-image diygw-col-0 image-clz" mode="widthFix" />
+							<div class="diygw-text-line1 diygw-col-0 red text12-clz">สด</div>
+							<div class="diygw-col-24 text1-clz diygw-ellipsis">แมนยู</div>
+						</div>
+						<div class="flex flex-wrap diygw-col-0 flex-direction-column items-center flex4-clz">
+							<img src="./static/1.png" class="image3-size diygw-image diygw-col-0 image3-clz" mode="widthFix" />
+							<div class="diygw-text-line1 diygw-col-0 red text-clz">สด</div>
+							<div class="diygw-col-24 text7-clz diygw-ellipsis">ลิเวอร์พู</div>
+						</div>
+						<div class="flex flex-wrap diygw-col-0 flex-direction-column items-center flex3-clz">
+							<img src="./static/3.png" class="image2-size diygw-image diygw-col-0 image2-clz" mode="widthFix" />
+							<div class="diygw-col-0 blue text4-clz diygw-ellipsis">เร็วๆนี้</div>
+							<div class="diygw-col-24 text5-clz diygw-ellipsis">ไทย</div>
+						</div>
+						<div class="flex flex-wrap diygw-col-0 flex-direction-column items-center flex2-clz">
+							<img src="./static/kt.png" class="image1-size diygw-image diygw-col-0 image1-clz" mode="widthFix" />
+							<div class="diygw-col-0 blue text2-clz diygw-ellipsis">เร็วๆนี้</div>
+							<div class="diygw-col-24 text3-clz diygw-ellipsis">บรูไน</div>
+						</div>
+						<div class="flex flex-wrap diygw-col-0 flex-direction-column items-center flex6-clz">
+							<img src="./static/kt.png" class="image5-size diygw-image diygw-col-0 image5-clz" mode="widthFix" />
+							<div class="diygw-col-0 red text10-clz">เร็วๆนี้</div>
+							<div class="diygw-col-24 text11-clz diygw-ellipsis">อังกฤษ</div>
+						</div>
+					</div>
+				</scroll-view>
+				<div class="flex flex-wrap diygw-col-24 flex-direction-column flex37-clz">
+					<div class="flex diygw-col-24">
+						<div class="diygw-grid col-4">
+							<div class="diygw-grid-item">
+								<div class="diygw-grid-inner grid-item-clz">
+									<div class="diygw-grid-icon diygw-avatar grid-icon-clz">
+										<img mode="aspectFit" class="diygw-avatar-img" src="./static/llqb1.png" />
+									</div>
+									<div class="diygw-grid-title">ประวัติ</div>
+								</div>
+							</div>
+							<div class="diygw-grid-item">
+								<div class="diygw-grid-inner grid-item-clz">
+									<div class="diygw-grid-icon diygw-avatar grid-icon-clz">
+										<img mode="aspectFit" class="diygw-avatar-img" src="./static/gm.png" />
+									</div>
+									<div class="diygw-grid-title">การเงิน</div>
+								</div>
+							</div>
+							<div class="diygw-grid-item">
+								<div class="diygw-grid-inner grid-item-clz">
+									<div class="diygw-grid-icon diygw-avatar grid-icon-clz">
+										<img mode="aspectFit" class="diygw-avatar-img" src="./static/simk.png" />
+									</div>
+									<div class="diygw-grid-title">พิเศษ</div>
+								</div>
+							</div>
+							<div class="diygw-grid-item">
+								<div class="diygw-grid-inner grid-item-clz">
+									<div class="diygw-grid-icon diygw-avatar grid-icon-clz">
+										<img mode="aspectFit" class="diygw-avatar-img" src="./static/yhq.png" />
+									</div>
+									<div class="diygw-grid-title">คูปอง</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex flex-wrap diygw-col-24 flex-direction-column flex38-clz">
+					<div class="diygw-col-24 text40-clz diygw-text-md">ตารางค่าน้ำบอลคืนนี้</div>
+					<div class="flex diygw-col-24 items-center flex-nowrap flex40-clz">
+						<img src="./static/icon1_yhq.png" class="image6-size diygw-image diygw-col-0 image6-clz" mode="scaleToFill" />
+						<div class="flex diygw-col-0 flex-direction-column justify-between flex-nowrap flex41-clz">
+							<div class="diygw-col-24 text41-clz">แมนยู-ลิเวอรพู</div>
+						</div>
+						<div class="diygw-text-line1 diygw-col-0 text43-clz">ทายบอล</div>
+					</div>
+					<div class="flex diygw-col-24 items-center flex-nowrap flex54-clz">
+						<img src="./static/icon1_xsqg.png" class="image7-size diygw-image diygw-col-0 image7-clz" mode="scaleToFill" />
+						<div class="flex diygw-col-0 flex-direction-column justify-between flex-nowrap flex55-clz">
+							<div class="diygw-col-24 text57-clz">ฝรั่งเศษ-อิตาลี่</div>
+						</div>
+						<div class="diygw-col-0 text59-clz">ทายบอล</div>
+					</div>
+					<div class="flex diygw-col-24 items-center flex-nowrap flex42-clz">
+						<img src="./static/icon1_rm.png" class="image8-size diygw-image diygw-col-0 image8-clz" mode="scaleToFill" />
+						<div class="flex diygw-col-0 flex-direction-column justify-between flex-nowrap flex53-clz">
+							<div class="diygw-col-24 text54-clz">ไทย-เกาหลีใต้</div>
+						</div>
+						<div class="diygw-col-0 text56-clz">ทายบอล</div>
+					</div>
+				</div>
+				<div class="flex diygw-col-24 diygw-bottom">
+					<div class="diygw-grid diygw-actions">
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid1.png" />
+								</div>
+								<div class="diygw-grid-title">หน้าหลัก</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid2.png" />
+								</div>
+								<div class="diygw-grid-title">เกม</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid3.png" />
+								</div>
+								<div class="diygw-grid-title">โปรโมชั่น</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid4.png" />
+									<div class="diygw-tag badge bar-badge-3 red">1</div>
+								</div>
+								<div class="diygw-grid-title">ข้อมูล</div>
+							</div>
+						</button>
+					</div>
+				</div>
+				<div class="flex diygw-col-24 diygw-bottom">
+					<div class="diygw-grid diygw-actions">
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid1.png" />
+								</div>
+								<div class="diygw-grid-title">หน้าหลัก</div>
+							</div>
+						</button>
+						<button @click="navigateTo" data-type="page" data-url="buttonbar1689104308749fbcdf02a7d.html" class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid2.png" />
+								</div>
+								<div class="diygw-grid-title">เกม</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid3.png" />
+								</div>
+								<div class="diygw-grid-title">โปรโมชั่น</div>
+							</div>
+						</button>
+						<button @click="navigateTo" data-type="page" data-url="/pages/null" class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid4.png" />
+									<div class="diygw-tag badge bar1-badge-3 red">1</div>
+								</div>
+								<div class="diygw-grid-title">ข้อมูล</div>
+							</div>
+						</button>
+					</div>
+				</div>
+				<img src="./static/red-envelope.png" class="response diygw-col-19 animate__animated animate__zoomInUp image10-clz" mode="widthFix" />
+				<div class="diygw-modal basic" :class="modal" style="z-index: 1000000">
+					<div class="diygw-dialog diygw-dialog-modal basis-lg">
+						<div>
+							<div class="flex diygw-dialog-content">
+								<div class="flex flex-wrap diygw-col-24 flex-direction-column justify-center items-center">
+									<img src="" class="response diygw-col-20 animate__animated animate__zoomInUp image9-clz" mode="widthFix" />
+									<div class="flex flex-wrap diygw-col-16 flex-direction-column justify-center items-center flex8-clz">
+										<div @click="navigateTo" data-type="tip" data-tip="设置你的点击事件" class="diygw-text-line1 diygw-col-0 popup-clz diygw-text-sm">รับทันที50บาท</div>
+									</div>
+									<span @click="navigateTo" data-type="closemodal" class="flex icon diygw-col-0 icon-clz diy-icon-roundclose"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex flex-wrap diygw-col-24 justify-around diygw-bottom flex9-clz">
+					<div class="flex flex-wrap diygw-col-0 flex-direction-column items-center">
+						<span class="flex icon1 diygw-col-0 icon1-clz diy-icon-home"></span>
+						<div class="diygw-col-0">首页</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-0 flex-direction-column items-center">
+						<span class="flex icon2 diygw-col-0 icon2-clz diy-icon-discover"></span>
+						<div class="diygw-col-0">社区</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-0 flex-direction-column justify-between items-center flex12-clz">
+						<span class="flex icon3 diygw-col-0 pink icon3-clz tiaodong diy-icon-cameraadd"></span>
+						<div class="diygw-col-0">发现</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-0 flex-direction-column items-center">
+						<span class="flex icon4 diygw-col-0 icon4-clz diy-icon-message"></span>
+						<div class="diygw-col-0 text15-clz">10</div>
+						<div class="diygw-col-0">消息</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-0 flex-direction-column items-center">
+						<span class="flex icon5 diygw-col-0 icon5-clz diy-icon-people"></span>
+						<div class="diygw-col-0">我的</div>
+					</div>
+				</div>
+				<div class="version text-grey flex-direction-column flex diygw-col-24 justify-center align-center">
+					<div>DIY官网代码生成器生成</div>
+					<div>http://www.diygw.com</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</body>
+	<script type="module">
+		const app = Vue.createApp({
+			data() {
+				return {
+					tabsDatas: [
+						{ text: `ดูหนัง`, icon: `` },
+						{ text: `ดูบอล`, icon: `` },
+						{ text: `ทุนฟรี`, icon: `` },
+						{ text: `เงื่อนไขสมาชิก`, icon: `` }
+					],
+					tabsLeft: 0,
+					tabsWidth: 0,
+					tabsItemWidth: 0,
+					tabsIndex: 0,
+					modal: 'show'
+				};
+			},
+			created() {
+				this.init();
+			},
+			methods: {
+				async init() {},
+				changeTabs(evt) {
+					let { index } = evt.currentTarget.dataset;
+					if (index == this.tabsIndex) return;
+					this.setData({
+						tabsIndex: index
+					});
+				},
+				scrolltoupperFlex1(evt) {},
+				scrolltolowerFlex1(evt) {}
+			}
+		});
+		app.use(vant);
+		app.use(DiygwLib);
+		app.config.globalProperties.$tools = new Tools();
+		app.config.globalProperties.$http = httpService;
+		app.config.globalProperties.$session = Session;
+		app.mixin({
+			methods: {
+				Validate,
+				setData,
+				navigateTo,
+				showModal,
+				showToast,
+				uploadImage
+			}
+		});
+		app.mount('#app');
+	</script>
+	<style>
+		.tabs-item-title {
+			font-size: 12px !important;
+		}
+		.tabs-title {
+		}
+		.tabs-item-title.cur {
+			font-size: calc(4px + 12px) !important;
+		}
+		.swiper-clz {
+			margin-left: 5px;
+			width: calc(100% - 5px - 5px) !important;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			margin-right: 5px;
+		}
+		.flex5-clz {
+			flex-shrink: 0;
+			padding-top: 5px;
+			padding-left: 5px;
+			width: 80px !important;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.image4-clz {
+			border: 3px solid #4874ff;
+			border-bottom-left-radius: 60px;
+			overflow: hidden;
+			border-top-left-radius: 60px;
+			border-top-right-radius: 60px;
+			border-bottom-right-radius: 60px;
+		}
+		.image4-size {
+			height: 50px !important;
+			width: 50px !important;
+		}
+		.text8-clz {
+			border: 1px solid #4874ff;
+			padding-top: 2px;
+			border-bottom-left-radius: 20px;
+			padding-left: 8px;
+			padding-bottom: 2px;
+			border-top-right-radius: 20px;
+			margin-right: 5px;
+			background-color: #ffffff;
+			margin-left: 5px;
+			overflow: hidden;
+			border-top-left-radius: 20px;
+			margin-top: -8px;
+			border-bottom-right-radius: 20px;
+			margin-bottom: 5px;
+			padding-right: 8px;
+		}
+		.text9-clz {
+			text-align: center;
+		}
+		.flex-clz {
+			flex-shrink: 0;
+			padding-top: 5px;
+			padding-left: 5px;
+			width: 80px !important;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.image-clz {
+			border: 3px solid #4874ff;
+			border-bottom-left-radius: 60px;
+			overflow: hidden;
+			border-top-left-radius: 60px;
+			border-top-right-radius: 60px;
+			border-bottom-right-radius: 60px;
+		}
+		.image-size {
+			height: 50px !important;
+			width: 50px !important;
+		}
+		.text12-clz {
+			border: 1px solid #4874ff;
+			padding-top: 2px;
+			border-bottom-left-radius: 20px;
+			padding-left: 8px;
+			padding-bottom: 2px;
+			border-top-right-radius: 20px;
+			margin-right: 5px;
+			background-color: #ffffff;
+			margin-left: 5px;
+			overflow: hidden;
+			border-top-left-radius: 20px;
+			margin-top: -8px;
+			border-bottom-right-radius: 20px;
+			margin-bottom: 5px;
+			padding-right: 8px;
+		}
+		.text1-clz {
+			font-family: 雅黑;
+			text-align: center;
+		}
+		.flex4-clz {
+			flex-shrink: 0;
+			padding-top: 5px;
+			padding-left: 5px;
+			width: 80px !important;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.image3-clz {
+			border: 3px solid #4874ff;
+			border-bottom-left-radius: 60px;
+			overflow: hidden;
+			border-top-left-radius: 60px;
+			border-top-right-radius: 60px;
+			border-bottom-right-radius: 60px;
+		}
+		.image3-size {
+			height: 50px !important;
+			width: 50px !important;
+		}
+		.text-clz {
+			border: 1px solid #4874ff;
+			padding-top: 2px;
+			border-bottom-left-radius: 20px;
+			padding-left: 8px;
+			padding-bottom: 2px;
+			border-top-right-radius: 20px;
+			margin-right: 5px;
+			background-color: #ffffff;
+			margin-left: 5px;
+			overflow: hidden;
+			border-top-left-radius: 20px;
+			margin-top: -8px;
+			border-bottom-right-radius: 20px;
+			margin-bottom: 5px;
+			padding-right: 8px;
+		}
+		.text7-clz {
+			text-align: center;
+		}
+		.flex3-clz {
+			flex-shrink: 0;
+			padding-top: 5px;
+			padding-left: 5px;
+			width: 80px !important;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.image2-clz {
+			border: 3px solid #4874ff;
+			border-bottom-left-radius: 60px;
+			overflow: hidden;
+			border-top-left-radius: 60px;
+			border-top-right-radius: 60px;
+			border-bottom-right-radius: 60px;
+		}
+		.image2-size {
+			height: 50px !important;
+			width: 50px !important;
+		}
+		.text4-clz {
+			border: 1px solid #4874ff;
+			padding-top: 2px;
+			border-bottom-left-radius: 20px;
+			padding-left: 8px;
+			padding-bottom: 2px;
+			border-top-right-radius: 20px;
+			margin-right: 5px;
+			background-color: #ffffff;
+			margin-left: 5px;
+			overflow: hidden;
+			border-top-left-radius: 20px;
+			margin-top: -8px;
+			border-bottom-right-radius: 20px;
+			margin-bottom: 5px;
+			padding-right: 8px;
+		}
+		.text5-clz {
+			text-align: center;
+		}
+		.flex2-clz {
+			flex-shrink: 0;
+			padding-top: 5px;
+			padding-left: 5px;
+			width: 80px !important;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.image1-clz {
+			border: 3px solid #4874ff;
+			border-bottom-left-radius: 60px;
+			overflow: hidden;
+			border-top-left-radius: 60px;
+			border-top-right-radius: 60px;
+			border-bottom-right-radius: 60px;
+		}
+		.image1-size {
+			height: 50px !important;
+			width: 50px !important;
+		}
+		.text2-clz {
+			border: 1px solid #4874ff;
+			padding-top: 2px;
+			border-bottom-left-radius: 20px;
+			padding-left: 8px;
+			padding-bottom: 2px;
+			border-top-right-radius: 20px;
+			margin-right: 5px;
+			background-color: #ffffff;
+			margin-left: 5px;
+			overflow: hidden;
+			border-top-left-radius: 20px;
+			margin-top: -8px;
+			border-bottom-right-radius: 20px;
+			margin-bottom: 5px;
+			padding-right: 8px;
+		}
+		.text3-clz {
+			text-align: center;
+		}
+		.flex6-clz {
+			flex-shrink: 0;
+			padding-top: 5px;
+			padding-left: 5px;
+			width: 80px !important;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.image5-clz {
+			border: 3px solid #4874ff;
+			border-bottom-left-radius: 60px;
+			overflow: hidden;
+			border-top-left-radius: 60px;
+			border-top-right-radius: 60px;
+			border-bottom-right-radius: 60px;
+		}
+		.image5-size {
+			height: 50px !important;
+			width: 50px !important;
+		}
+		.text10-clz {
+			border: 1px solid #4874ff;
+			padding-top: 2px;
+			border-bottom-left-radius: 20px;
+			padding-left: 8px;
+			padding-bottom: 2px;
+			border-top-right-radius: 20px;
+			margin-right: 5px;
+			background-color: #ffffff;
+			margin-left: 5px;
+			overflow: hidden;
+			border-top-left-radius: 20px;
+			margin-top: -8px;
+			border-bottom-right-radius: 20px;
+			margin-bottom: 5px;
+			padding-right: 8px;
+		}
+		.text11-clz {
+			text-align: center;
+		}
+		.flex37-clz {
+			padding-top: 10px;
+			border-bottom-left-radius: 15px;
+			padding-left: 10px;
+			padding-bottom: 10px;
+			border-top-right-radius: 15px;
+			margin-right: 20px;
+			background-color: #ffffff;
+			margin-left: 20px;
+			box-shadow: 0px 1px 6px 1px rgba(31, 31, 31, 0.09);
+			overflow: hidden;
+			width: calc(100% - 20px - 20px) !important;
+			border-top-left-radius: 15px;
+			margin-top: 15px;
+			border-bottom-right-radius: 15px;
+			margin-bottom: 0px;
+			padding-right: 10px;
+		}
+		.grid-item-clz {
+			margin: 0px;
+			padding: 10px;
+		}
+		.grid-icon-clz {
+			font-size: calc(30px - 4px) !important;
+
+			width: 30px;
+			height: 30px;
+		}
+		.flex38-clz {
+			padding-top: 10px;
+			border-bottom-left-radius: 15px;
+			padding-left: 10px;
+			padding-bottom: 10px;
+			border-top-right-radius: 15px;
+			margin-right: 20px;
+			background-color: #ffffff;
+			margin-left: 20px;
+			box-shadow: 0px 1px 6px 1px rgba(31, 31, 31, 0.09);
+			overflow: hidden;
+			width: calc(100% - 20px - 20px) !important;
+			border-top-left-radius: 15px;
+			margin-top: 15px;
+			border-bottom-right-radius: 15px;
+			margin-bottom: 0px;
+			padding-right: 10px;
+		}
+		.text40-clz {
+			margin-left: 5px;
+			font-weight: bold;
+			width: calc(100% - 5px - 5px) !important;
+			font-size: 14px !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.flex40-clz {
+			padding-top: 8px;
+			padding-left: 8px;
+			padding-bottom: 8px;
+			border-bottom: 1px solid #eee;
+			padding-right: 8px;
+		}
+		.image6-clz {
+			border-bottom-left-radius: 60px;
+			overflow: hidden;
+			border-top-left-radius: 60px;
+			border-top-right-radius: 60px;
+			border-bottom-right-radius: 60px;
+		}
+		.image6-size {
+			height: 40px !important;
+			width: 40px !important;
+		}
+		.flex41-clz {
+			padding-top: 5px;
+			flex: 1;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.text41-clz {
+			color: #1d1d1d;
+			font-weight: bold;
+			font-size: 14px !important;
+		}
+		.text43-clz {
+			background-color: #f33333;
+			padding-top: 5px;
+			border-bottom-left-radius: 16px;
+			overflow: hidden;
+			color: #ffffff;
+			font-weight: bold;
+			padding-left: 20px;
+			padding-bottom: 5px;
+			border-top-left-radius: 16px;
+			border-top-right-radius: 16px;
+			border-bottom-right-radius: 16px;
+			padding-right: 20px;
+		}
+		.flex54-clz {
+			padding-top: 8px;
+			padding-left: 8px;
+			padding-bottom: 8px;
+			border-bottom: 1px solid #eee;
+			padding-right: 8px;
+		}
+		.image7-clz {
+			border-bottom-left-radius: 60px;
+			overflow: hidden;
+			border-top-left-radius: 60px;
+			border-top-right-radius: 60px;
+			border-bottom-right-radius: 60px;
+		}
+		.image7-size {
+			height: 40px !important;
+			width: 40px !important;
+		}
+		.flex55-clz {
+			padding-top: 5px;
+			flex: 1;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.text57-clz {
+			color: #1d1d1d;
+			font-weight: bold;
+			font-size: 14px !important;
+		}
+		.text59-clz {
+			background-color: #f33333;
+			padding-top: 5px;
+			border-bottom-left-radius: 16px;
+			overflow: hidden;
+			color: #ffffff;
+			font-weight: bold;
+			padding-left: 20px;
+			padding-bottom: 5px;
+			border-top-left-radius: 16px;
+			border-top-right-radius: 16px;
+			border-bottom-right-radius: 16px;
+			padding-right: 20px;
+		}
+		.flex42-clz {
+			padding-top: 8px;
+			padding-left: 8px;
+			padding-bottom: 8px;
+			border-bottom: 1px solid #eee;
+			padding-right: 8px;
+		}
+		.image8-clz {
+			border-bottom-left-radius: 60px;
+			overflow: hidden;
+			border-top-left-radius: 60px;
+			border-top-right-radius: 60px;
+			border-bottom-right-radius: 60px;
+		}
+		.image8-size {
+			height: 40px !important;
+			width: 40px !important;
+		}
+		.flex53-clz {
+			padding-top: 5px;
+			flex: 1;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.text54-clz {
+			color: #1d1d1d;
+			font-weight: bold;
+			font-size: 14px !important;
+		}
+		.text56-clz {
+			background-color: #f33333;
+			padding-top: 5px;
+			border-bottom-left-radius: 16px;
+			overflow: hidden;
+			color: #ffffff;
+			font-weight: bold;
+			padding-left: 20px;
+			padding-bottom: 5px;
+			border-top-left-radius: 16px;
+			border-top-right-radius: 16px;
+			border-bottom-right-radius: 16px;
+			padding-right: 20px;
+		}
+		.bar-badge-3 {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+		.bar1-badge-3 {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+		.image10-clz {
+			animation-duration: 2000ms;
+			-webkit-animation-duration: 2000ms;
+			animation-delay: 100ms;
+			-webkit-animation-delay: 100ms;
+			animation-iteration-count: 1;
+			-webkit-animation-iteration-count: 1;
+		}
+		.modal-clz {
+			z-index: 1000000;
+		}
+		.diygw-dialog-modal {
+			background-color: rgba(255, 255, 255, 0);
+		}
+		.image9-clz {
+			animation-duration: 2000ms;
+			-webkit-animation-duration: 2000ms;
+			animation-delay: 100ms;
+			-webkit-animation-delay: 100ms;
+			animation-iteration-count: 1;
+			-webkit-animation-iteration-count: 1;
+		}
+		.flex8-clz {
+			margin-left: 0px;
+			width: calc(66.6666666667% - 0px - 0px) !important;
+			margin-top: -55px;
+			margin-bottom: 25px;
+			margin-right: 0px;
+		}
+		.popup-clz {
+			padding-top: 10px;
+			border-bottom-left-radius: 6px;
+			font-weight: bold;
+			letter-spacing: 7px;
+			padding-left: 20px;
+			font-size: 14px !important;
+			padding-bottom: 10px;
+			border-top-right-radius: 6px;
+			background-color: #e8e8e8;
+			text-shadow: 2px 0px 2px #dbdbdb;
+			overflow: hidden;
+			border-top-left-radius: 6px;
+			border-bottom-right-radius: 6px;
+			background-image: linear-gradient(135deg, #fccf31 10%, #ebc232 100%);
+			padding-right: 20px;
+		}
+		.icon-clz {
+			color: #e1e1e1;
+		}
+		.icon {
+			font-size: 32px;
+		}
+		.flex9-clz {
+			padding-top: 2px;
+			box-shadow: 0px 1px 4px 2px rgba(31, 31, 31, 0.16);
+			overflow: visible;
+			left: 0px;
+			bottom: 0px;
+			padding-left: 2px;
+			padding-bottom: 2px;
+			padding-right: 2px;
+		}
+		.icon1-clz {
+			color: #767272;
+		}
+		.icon1 {
+			font-size: 32px;
+		}
+		.icon2-clz {
+			color: #767272;
+		}
+		.icon2 {
+			font-size: 32px;
+		}
+		.flex12-clz {
+			margin-left: 0px;
+			margin-top: -18px;
+			margin-bottom: 0px;
+			margin-right: 0px;
+		}
+		.icon3-clz {
+			background-color: #f1f1f1;
+			padding-top: 8px;
+			border-bottom-left-radius: 1000px;
+			overflow: hidden;
+			padding-left: 8px;
+			padding-bottom: 8px;
+			border-top-left-radius: 1000px;
+			border-top-right-radius: 1000px;
+			border-bottom-right-radius: 1000px;
+			padding-right: 8px;
+		}
+		@keyframes tiaodong {
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+			50% {
+				transform: translateY(-0.8rem);
+			}
+		}
+		.tiaodong {
+			animation: tiaodong 3s ease-in-out infinite;
+		}
+		.icon3 {
+			font-size: 32px;
+		}
+		.icon4-clz {
+			color: #767272;
+		}
+		.icon4 {
+			font-size: 32px;
+		}
+		.text15-clz {
+			padding-top: 2px;
+			border-bottom-left-radius: 60px;
+			z-index: 1;
+			color: #ffffff;
+			padding-left: 3px;
+			font-size: 10rpx !important;
+			padding-bottom: 2px;
+			border-top-right-radius: 60px;
+			right: -5px;
+			background-color: #ff0000;
+			overflow: hidden;
+			top: -5px;
+			border-top-left-radius: 60px;
+			border-bottom-right-radius: 60px;
+			position: absolute;
+			padding-right: 3px;
+		}
+		.icon5-clz {
+			color: #767272;
+		}
+		.icon5 {
+			font-size: 32px;
+		}
+		.container22215 {
+			padding-left: 0px;
+			padding-right: 0px;
+			background-color: #ffffff;
+
+			background-position: center left;
+			background-size: 100% 100%;
+
+			font-size: 15px;
+			color: #363636;
+		}
+		.container22215 {
+			padding-top: 45px;
+			padding-bottom: 80px;
+		}
+	</style>
+</html>

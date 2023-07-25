@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>tabbar</title>
+		<link rel="stylesheet" href="common/vant.min.css" />
+		<script src="common/vue.js"></script>
+		<script src="common/vant.min.js"></script>
+		<script src="common/axios.min.js"></script>
+		<script src="common/Session.js"></script>
+		<script src="common/Tools.js"></script>
+		<script src="common/Validate.js"></script>
+		<script src="common/Page.js"></script>
+		<script src="common/Http.js"></script>
+		<script src="common/index.umd.js"></script>
+		<link rel="stylesheet" href="common/diygw-ui/index.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="container container22215">
+				<div class="flex flex-wrap diygw-col-24 flex-direction-column items-center flex7-clz">
+					<!-- #ifdef MP-WEIXIN -->
+					<div class="flex flex-wrap diygw-col-24 flex-direction-column flex8-clz"></div>
+					<!--  #endif -->
+					<img src="./static/q.png" class="image3-size diygw-image diygw-col-0 image3-clz" mode="widthFix" />
+					<div class="diygw-col-0 text1-clz">DIY可视化</div>
+					<div class="flex diygw-col-24 justify-around flex-wrap flex9-clz">
+						<div class="flex flex-wrap diygw-col-8 flex-direction-column items-center flex10-clz">
+							<div class="diygw-col-0 text-clz diygw-text-lg">168</div>
+							<div class="diygw-col-0">他的关注</div>
+						</div>
+						<div class="flex flex-wrap diygw-col-8 flex-direction-column items-center flex19-clz">
+							<div class="diygw-col-0 text20-clz diygw-text-lg">12822</div>
+							<div class="diygw-col-0">粉丝</div>
+						</div>
+						<div class="flex flex-wrap diygw-col-8 flex-direction-column items-center flex17-clz">
+							<div class="diygw-col-0 text17-clz diygw-text-lg">218</div>
+							<div class="diygw-col-0">动态</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex flex-wrap diygw-col-24 justify-between items-center flex-clz">
+					<div class="flex flex-wrap diygw-col-0 flex-direction-column">
+						<img src="./static/fz1.png" class="image4-size diygw-image diygw-col-24" mode="widthFix" />
+						<div class="diygw-col-0 text10-clz">开通会员，每月立省199元</div>
+					</div>
+					<div class="diygw-col-0 text5-clz">立即开通</div>
+				</div>
+				<div class="flex flex-wrap diygw-col-24 flex-direction-column flex4-clz">
+					<div class="diygw-col-0 text3-clz">我的订单</div>
+					<div class="flex flex-wrap diygw-col-24 justify-around flex35-clz">
+						<div class="flex flex-wrap diygw-col-6 flex-direction-column items-center">
+							<img src="./static/fz7.png" class="image16-size diygw-image diygw-col-0" mode="aspectFit" />
+							<div class="diygw-col-0 text39-clz">全部订单</div>
+						</div>
+						<div class="flex flex-wrap diygw-col-6 flex-direction-column items-center">
+							<img src="./static/fz8.png" class="image18-size diygw-image diygw-col-0" mode="aspectFit" />
+							<div class="diygw-col-0 text41-clz">待付款</div>
+						</div>
+						<div class="flex flex-wrap diygw-col-6 flex-direction-column items-center">
+							<img src="./static/fz9.png" class="image20-size diygw-image diygw-col-0" mode="aspectFit" />
+							<div class="diygw-col-0 text43-clz">待发货</div>
+						</div>
+						<div class="flex flex-wrap diygw-col-6 flex-direction-column items-center">
+							<img src="./static/fz10.png" class="image-size diygw-image diygw-col-0" mode="aspectFit" />
+							<div class="diygw-col-0 text6-clz">待评价</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex flex-wrap diygw-col-24 flex-direction-column flex2-clz">
+					<div class="diygw-col-0 text2-clz">特色服务</div>
+				</div>
+				<div class="flex diygw-col-24 diygw-bottom">
+					<div class="diygw-grid diygw-actions">
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid1.png" />
+								</div>
+								<div class="diygw-grid-title">菜单一</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid2.png" />
+								</div>
+								<div class="diygw-grid-title">菜单二</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid3.png" />
+								</div>
+								<div class="diygw-grid-title">菜单三</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid4.png" />
+								</div>
+								<div class="diygw-grid-title">菜单四</div>
+							</div>
+						</button>
+					</div>
+				</div>
+				<div class="diygw-form-item diygw-col-24">
+					<div class="title text-red">日期</div>
+					<div class="flex input" @click.stop="showDate=true"><input class="flex1" readonly placeholder="请选择" v-model="date" /> <i class="iconfont icon-right"></i></div>
+					<van-calendar v-model:show="showDate" teleport="body" @confirm="changeDate" />
+				</div>
+				<div class="flex flex-wrap diygw-col-24 justify-start flex5-clz">
+					<div class="flex flex-wrap diygw-col-6 flex-direction-column items-center flex6-clz">
+						<img src="./static/fz2.png" class="image1-size diygw-image diygw-col-0" mode="aspectFit" />
+						<div class="diygw-col-0 text4-clz">礼券卡包</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-6 flex-direction-column items-center flex11-clz">
+						<img src="./static/ym-1.png" class="image2-size diygw-image diygw-col-0" mode="aspectFit" />
+						<div class="diygw-col-0 text7-clz">收货地址</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-6 flex-direction-column items-center flex12-clz">
+						<img src="./static/fz21.png" class="image5-size diygw-image diygw-col-0" mode="aspectFit" />
+						<div class="diygw-col-0 text9-clz">积分商城</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-6 flex-direction-column items-center flex13-clz">
+						<img src="./static/fz22.png" class="image6-size diygw-image diygw-col-0" mode="aspectFit" />
+						<div class="diygw-col-0 text11-clz">邀请有礼</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-6 flex-direction-column items-center flex18-clz">
+						<img src="./static/fz23.png" class="image10-size diygw-image diygw-col-0" mode="aspectFit" />
+						<div class="diygw-col-0 text15-clz">精彩活动</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-6 flex-direction-column items-center flex16-clz">
+						<img src="./static/fz24.png" class="image9-size diygw-image diygw-col-0" mode="aspectFit" />
+						<div class="diygw-col-0 text14-clz">游戏中心</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-6 flex-direction-column items-center flex15-clz">
+						<img src="./static/fz25.png" class="image8-size diygw-image diygw-col-0" mode="aspectFit" />
+						<div class="diygw-col-0 text13-clz">常见问题</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-6 flex-direction-column items-center flex14-clz">
+						<img src="./static/fz26.png" class="image7-size diygw-image diygw-col-0" mode="aspectFit" />
+						<div class="diygw-col-0 text12-clz">意见建议</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-6 flex-direction-column items-center flex21-clz">
+						<img src="./static/fz27.png" class="image12-size diygw-image diygw-col-0" mode="aspectFit" />
+						<div class="diygw-col-0 text18-clz">联系我们</div>
+					</div>
+					<div class="flex flex-wrap diygw-col-6 flex-direction-column items-center flex20-clz">
+						<img src="./static/fz28.png" class="image11-size diygw-image diygw-col-0" mode="aspectFit" />
+						<div class="diygw-col-0 text16-clz">设置中心</div>
+					</div>
+				</div>
+				<div class="version text-grey flex-direction-column flex diygw-col-24 justify-center align-center">
+					<div>DIY官网代码生成器生成</div>
+					<div>http://www.diygw.com</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</body>
+	<script type="module">
+		const app = Vue.createApp({
+			data() {
+				return {
+					globalData: { logintype: '0', agree: '0' },
+					showDate: false,
+					date: ''
+				};
+			},
+			created() {
+				this.init();
+			},
+			methods: {
+				async init() {},
+				// agree 自定义方法
+				async agreeFunction(param) {
+					let thiz = this;
+					//如果不同意，改为同意
+					this.globalData.agree = this.globalData.agree == '1' ? '0' : '1';
+				},
+
+				// code 自定义方法
+				async codeFunction(param) {
+					let thiz = this;
+					//如果1表示验证码登录，0表进密码登录
+					this.globalData.logintype = this.globalData.logintype == '1' ? '0' : '1';
+				},
+
+				// sendMsg 自定义方法
+				async sendMsgFunction(param) {
+					let thiz = this;
+					this.formData.codeFlag = false;
+					if (!this.form.phone) {
+						this.showToast('手机号码不能为空');
+						//不给发送验证码
+						this.formData.codeFlag = false;
+						return;
+					}
+					let pattern = /^1[3-9]\d{9}$/;
+					if (!pattern.test(this.form.phone)) {
+						this.showToast('手机号码输入有误');
+						//不给发送验证码
+						this.formData.codeFlag = false;
+						return;
+					}
+					let http_url = '';
+					//配置后可删除下面的判断
+					if (!http_url) {
+						this.showToast('默认发送短信验证地址，配置后可删除此判断');
+						return;
+					}
+					let http_data = {
+						phone: this.form.phone
+					};
+					let http_header = {};
+					let data = await this.$http.post(http_url, http_data, http_header, 'json');
+					if (data.code == 0) {
+						this.showToast(data.msg);
+						return;
+					} else {
+						//修改为true
+						this.formData.codeFlag = true;
+						this.$refs.codeCodeRef.start();
+						this.showToast('验证码已发送');
+					}
+				},
+				changeDate(evt) {
+					this.date = `${evt.getFullYear()}-${evt.getMonth() < 10 ? '0' : ''}${evt.getMonth() + 1}-${evt.getDate() < 10 ? '0' : ''}${evt.getDate()}`;
+					this.showDate = false;
+				}
+			}
+		});
+		app.use(vant);
+		app.use(DiygwLib);
+		app.config.globalProperties.$tools = new Tools();
+		app.config.globalProperties.$http = httpService;
+		app.config.globalProperties.$session = Session;
+		app.mixin({
+			methods: {
+				Validate,
+				setData,
+				navigateTo,
+				showModal,
+				showToast,
+				uploadImage
+			}
+		});
+		app.mount('#app');
+	</script>
+	<style>
+		.flex7-clz {
+			padding-top: 10px;
+			background-size: 100% 100%;
+			padding-left: 5px;
+			padding-bottom: 10px;
+			background-position: bottom center;
+			padding-right: 5px;
+		}
+		.flex8-clz {
+			height: 60px;
+		}
+		.image3-clz {
+			flex-shrink: 0;
+			border-bottom-left-radius: 60px;
+			overflow: hidden;
+			width: 60px !important;
+			border-top-left-radius: 60px;
+			border-top-right-radius: 60px;
+			border-bottom-right-radius: 60px;
+			height: 60px !important;
+		}
+		.image3-size {
+			height: 60px !important;
+			width: 60px !important;
+		}
+		.text1-clz {
+			margin-left: 5px;
+			padding-top: 5px;
+			font-weight: bold;
+			padding-left: 10px;
+			font-size: 16px !important;
+			padding-bottom: 5px;
+			margin-top: 0px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+			padding-right: 10px;
+		}
+		.flex9-clz {
+			padding-top: 5px;
+			z-index: 100;
+			color: #707070;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex10-clz {
+			z-index: 100;
+		}
+		.text-clz {
+			color: #474747;
+		}
+		.flex19-clz {
+			z-index: 100;
+		}
+		.text20-clz {
+			color: #474747;
+		}
+		.flex17-clz {
+			z-index: 100;
+		}
+		.text17-clz {
+			color: #474747;
+		}
+		.flex-clz {
+			padding-top: 15px;
+			border-bottom-left-radius: 8px;
+			background-size: 100% 100%;
+			padding-left: 10px;
+			padding-bottom: 15px;
+			border-top-right-radius: 8px;
+			margin-right: 10px;
+			margin-left: 10px;
+			box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+			overflow: hidden;
+			width: calc(100% - 10px - 10px) !important;
+			border-top-left-radius: 8px;
+			margin-top: 10px;
+			border-bottom-right-radius: 8px;
+			background-image: url(/static/hb11.png);
+			margin-bottom: 10px;
+			padding-right: 10px;
+		}
+		.image4-size {
+			height: 21px !important;
+			width: 54px !important;
+		}
+		.text10-clz {
+			margin-left: 0px;
+			color: #eecc92;
+			margin-top: 5px;
+			margin-bottom: 0px;
+			margin-right: 0px;
+		}
+		.text5-clz {
+			padding-top: 5px;
+			border-bottom-left-radius: 50px;
+			color: #ffffff;
+			font-weight: bold;
+			padding-left: 12px;
+			font-size: 16px !important;
+			padding-bottom: 5px;
+			border-top-right-radius: 50px;
+			background-color: rgba(255, 255, 255, 0.3);
+			overflow: hidden;
+			border-top-left-radius: 50px;
+			border-bottom-right-radius: 50px;
+			padding-right: 12px;
+		}
+		.flex4-clz {
+			padding-top: 5px;
+			border-bottom-left-radius: 8px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			border-top-right-radius: 8px;
+			margin-right: 10px;
+			background-color: #ffffff;
+			margin-left: 10px;
+			box-shadow: 0px 8px 25px rgba(255, 230, 230, 0.44);
+			overflow: hidden;
+			width: calc(100% - 10px - 10px) !important;
+			border-top-left-radius: 8px;
+			margin-top: 10px;
+			border-bottom-right-radius: 8px;
+			margin-bottom: 10px;
+			padding-right: 5px;
+		}
+		.text3-clz {
+			margin-left: 5px;
+			font-weight: bold;
+			flex: 1;
+			font-size: 14px !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.flex35-clz {
+			margin-left: 5px;
+			width: calc(100% - 5px - 5px) !important;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			margin-right: 5px;
+		}
+		.image16-size {
+			height: 24px !important;
+			width: 24px !important;
+		}
+		.text39-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.image18-size {
+			height: 24px !important;
+			width: 24px !important;
+		}
+		.text41-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.image20-size {
+			height: 24px !important;
+			width: 24px !important;
+		}
+		.text43-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.image-size {
+			height: 24px !important;
+			width: 24px !important;
+		}
+		.text6-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex2-clz {
+			padding-top: 5px;
+			border-bottom-left-radius: 8px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			border-top-right-radius: 8px;
+			margin-right: 10px;
+			background-color: #ffffff;
+			margin-left: 10px;
+			box-shadow: 0px 8px 25px rgba(255, 230, 230, 0.44);
+			overflow: hidden;
+			width: calc(100% - 10px - 10px) !important;
+			border-top-left-radius: 8px;
+			margin-top: 10px;
+			border-bottom-right-radius: 8px;
+			margin-bottom: 10px;
+			padding-right: 5px;
+		}
+		.text2-clz {
+			margin-left: 5px;
+			font-weight: bold;
+			flex: 1;
+			font-size: 14px !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.flex5-clz {
+			margin-left: 5px;
+			width: calc(100% - 5px - 5px) !important;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			margin-right: 5px;
+		}
+		.flex6-clz {
+			margin-left: 5px;
+			width: calc(25% - 5px - 5px) !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.image1-size {
+			height: 24px !important;
+			width: 24px !important;
+		}
+		.text4-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex11-clz {
+			margin-left: 5px;
+			width: calc(25% - 5px - 5px) !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.image2-size {
+			height: 24px !important;
+			width: 24px !important;
+		}
+		.text7-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex12-clz {
+			margin-left: 5px;
+			width: calc(25% - 5px - 5px) !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.image5-size {
+			height: 24px !important;
+			width: 24px !important;
+		}
+		.text9-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex13-clz {
+			margin-left: 5px;
+			width: calc(25% - 5px - 5px) !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.image6-size {
+			height: 24px !important;
+			width: 24px !important;
+		}
+		.text11-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex18-clz {
+			margin-left: 5px;
+			width: calc(25% - 5px - 5px) !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.image10-size {
+			height: 24px !important;
+			width: 24px !important;
+		}
+		.text15-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex16-clz {
+			margin-left: 5px;
+			width: calc(25% - 5px - 5px) !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.image9-size {
+			height: 24px !important;
+			width: 24px !important;
+		}
+		.text14-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex15-clz {
+			margin-left: 5px;
+			width: calc(25% - 5px - 5px) !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.image8-size {
+			height: 24px !important;
+			width: 24px !important;
+		}
+		.text13-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex14-clz {
+			margin-left: 5px;
+			width: calc(25% - 5px - 5px) !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.image7-size {
+			height: 24px !important;
+			width: 24px !important;
+		}
+		.text12-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex21-clz {
+			margin-left: 5px;
+			width: calc(25% - 5px - 5px) !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.image12-size {
+			height: 24px !important;
+			width: 24px !important;
+		}
+		.text18-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.flex20-clz {
+			margin-left: 5px;
+			width: calc(25% - 5px - 5px) !important;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+		}
+		.image11-size {
+			height: 24px !important;
+			width: 24px !important;
+		}
+		.text16-clz {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+		}
+		.container22215 {
+			padding-left: 0px;
+			padding-right: 0px;
+
+			background-image: url(/static/bg1.png);
+			background-position: top center;
+			background-size: cover;
+		}
+		.container22215 {
+			padding-bottom: 80px;
+		}
+	</style>
+</html>

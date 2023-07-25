@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>list</title>
+		<link rel="stylesheet" href="common/vant.min.css" />
+		<script src="common/vue.js"></script>
+		<script src="common/vant.min.js"></script>
+		<script src="common/axios.min.js"></script>
+		<script src="common/Session.js"></script>
+		<script src="common/Tools.js"></script>
+		<script src="common/Validate.js"></script>
+		<script src="common/Page.js"></script>
+		<script src="common/Http.js"></script>
+		<script src="common/index.umd.js"></script>
+		<link rel="stylesheet" href="common/diygw-ui/index.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="container container22215">
+				<div class="diygw-title diygw-top solid-bottom" style="color: white; background: #e31393">
+					<div class="title flex1 text-center">list</div>
+				</div>
+				<div class="flex diygw-col-24 flex-direction-column tabs-clz">
+					<div class="diygw-tabs text-center solid-bottom justify-center scale-title tabs-title">
+						<div class="diygw-tab-item tabs-item-title flex-sub" :class="index==tabsIndex?' cur text-green':''" v-for="(item,index) in  tabsDatas" :key="index" @click="changeTabs" :data-index="index"><span v-if="item.icon" :class="item.icon"></span> {{item.text}}</div>
+					</div>
+					<div class="">
+						<div v-if="tabsIndex==0" class="flex-sub padding-sm"></div>
+						<div v-if="tabsIndex==1" class="flex-sub padding-sm"></div>
+						<div v-if="tabsIndex==2" class="flex-sub padding-sm">
+							<div class="flex flex-wrap diygw-col-24 flex-direction-column flex14-clz">
+								<div class="diygw-col-24 text4-clz">地址：广州大学城华师北</div>
+								<div class="diygw-col-24 text15-clz">营业时间：08:00 - 21:00</div>
+								<div class="flex diygw-col-24 items-center flex-nowrap flex17-clz">
+									<div class="diygw-col-0">店铺标签：</div>
+									<div class="diygw-col-0 text17-clz">重庆小面</div>
+									<div class="diygw-col-0 text21-clz">梅菜扣肉饭</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex flex-wrap diygw-col-24 diygw-bottom flex22-clz"></div>
+				<div class="flex diygw-col-24 diygw-bottom">
+					<div class="diygw-grid diygw-actions">
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid1.png" />
+								</div>
+								<div class="diygw-grid-title">หน้าหลัก</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid2.png" />
+								</div>
+								<div class="diygw-grid-title">เกม</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid3.png" />
+								</div>
+								<div class="diygw-grid-title">โปรโมชั่น</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size:26px font-size:calc(35px - 12px );width:35px;height:35px;">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid4.png" />
+									<div class="diygw-tag badge bar1-badge-3 red">1</div>
+								</div>
+								<div class="diygw-grid-title">ข้อมูล</div>
+							</div>
+						</button>
+					</div>
+				</div>
+				<img src="" class="response diygw-col-24 bg-none image6-clz" mode="widthFix" />
+				<img src="" class="response diygw-col-24" mode="widthFix" />
+				<img src="./static/23.png" class="response diygw-col-24 bg-none image3-clz" mode="widthFix" />
+				<img src="./static/23.png" class="response diygw-col-24 bg-none image2-clz" mode="widthFix" />
+				<img src="./static/23.png" class="response diygw-col-24 bg-none image1-clz" mode="widthFix" />
+				<img src="./static/23.png" class="response diygw-col-24 bg-none image-clz" mode="widthFix" />
+				<div class="version text-grey flex-direction-column flex diygw-col-24 justify-center align-center">
+					<div>DIY官网代码生成器生成</div>
+					<div>http://www.diygw.com</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</body>
+	<script type="module">
+		const app = Vue.createApp({
+			data() {
+				return {
+					tabsDatas: [
+						{ text: `เกมมาใหม่`, icon: `` },
+						{ text: `เกมโปรด`, icon: `` },
+						{ text: `เกมเพิ่งเล่น`, icon: `` }
+					],
+					tabsLeft: 0,
+					tabsWidth: 0,
+					tabsItemWidth: 0,
+					tabsIndex: 0
+				};
+			},
+			created() {
+				this.init();
+			},
+			methods: {
+				async init() {},
+				changeTabs(evt) {
+					let { index } = evt.currentTarget.dataset;
+					if (index == this.tabsIndex) return;
+					this.setData({
+						tabsIndex: index
+					});
+				}
+			}
+		});
+		app.use(vant);
+		app.use(DiygwLib);
+		app.config.globalProperties.$tools = new Tools();
+		app.config.globalProperties.$http = httpService;
+		app.config.globalProperties.$session = Session;
+		app.mixin({
+			methods: {
+				Validate,
+				setData,
+				navigateTo,
+				showModal,
+				showToast,
+				uploadImage
+			}
+		});
+		app.mount('#app');
+	</script>
+	<style>
+		.tabs-clz {
+			font-size: 10px !important;
+		}
+		.flex14-clz {
+			z-index: 100;
+		}
+		.text4-clz {
+			margin-left: 5px;
+			padding-top: 10px;
+			padding-left: 10px;
+			width: calc(100% - 5px - 5px) !important;
+			padding-bottom: 10px;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			border-bottom: 1px solid #eee;
+			margin-right: 5px;
+			padding-right: 10px;
+		}
+		.text15-clz {
+			margin-left: 5px;
+			padding-top: 10px;
+			padding-left: 10px;
+			width: calc(100% - 5px - 5px) !important;
+			padding-bottom: 10px;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			border-bottom: 1px solid #eee;
+			margin-right: 5px;
+			padding-right: 10px;
+		}
+		.flex17-clz {
+			margin-left: 5px;
+			padding-top: 10px;
+			z-index: 100;
+			padding-left: 10px;
+			width: calc(100% - 5px - 5px) !important;
+			padding-bottom: 10px;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			border-bottom: 1px solid #eee;
+			margin-right: 5px;
+			padding-right: 10px;
+		}
+		.text17-clz {
+			border: 1px solid #0ba1f7;
+			padding-top: 3px;
+			border-bottom-left-radius: 3px;
+			color: #0ba1f7;
+			padding-left: 5px;
+			padding-bottom: 3px;
+			border-top-right-radius: 3px;
+			margin-right: 5px;
+			margin-left: 0px;
+			overflow: hidden;
+			border-top-left-radius: 3px;
+			margin-top: 0px;
+			border-bottom-right-radius: 3px;
+			margin-bottom: 0px;
+			padding-right: 5px;
+		}
+		.text21-clz {
+			border: 1px solid #0ba1f7;
+			padding-top: 3px;
+			border-bottom-left-radius: 3px;
+			color: #0ba1f7;
+			padding-left: 5px;
+			padding-bottom: 3px;
+			border-top-right-radius: 3px;
+			margin-right: 5px;
+			margin-left: 0px;
+			overflow: hidden;
+			border-top-left-radius: 3px;
+			margin-top: 0px;
+			border-bottom-right-radius: 3px;
+			margin-bottom: 0px;
+			padding-right: 5px;
+		}
+		.flex22-clz {
+			padding-top: 10px;
+			z-index: 100;
+			left: 0px;
+			bottom: 0px;
+			padding-left: 10px;
+			padding-bottom: 10px;
+			padding-right: 10px;
+		}
+		.bar1-badge-3 {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+		.image6-clz {
+			border-bottom-left-radius: 12px;
+			border-top-right-radius: 12px;
+			margin-right: 10px;
+			background-color: #f8f8f8;
+			margin-left: 10px;
+			overflow: hidden;
+			flex: 1;
+			width: calc(100% - 10px - 10px) !important;
+			border-top-left-radius: 12px;
+			margin-top: 10px;
+			border-bottom-right-radius: 12px;
+			background-image: linear-gradient(180deg, rgba(228, 242, 255, 1) 0%, rgba(228, 242, 255, 0.9697607558648459) 70%);
+			margin-bottom: 10px;
+			text-align: center;
+		}
+		.image3-clz {
+			border-bottom-left-radius: 12px;
+			border-top-right-radius: 12px;
+			margin-right: 10px;
+			background-color: #f8f8f8;
+			margin-left: 10px;
+			overflow: hidden;
+			flex: 1;
+			width: calc(100% - 10px - 10px) !important;
+			border-top-left-radius: 12px;
+			margin-top: 10px;
+			border-bottom-right-radius: 12px;
+			background-image: linear-gradient(180deg, rgba(228, 242, 255, 1) 0%, rgba(228, 242, 255, 0.9697607558648459) 70%);
+			margin-bottom: 10px;
+			text-align: center;
+		}
+		.image2-clz {
+			border-bottom-left-radius: 12px;
+			border-top-right-radius: 12px;
+			margin-right: 10px;
+			background-color: #f8f8f8;
+			margin-left: 10px;
+			overflow: hidden;
+			flex: 1;
+			width: calc(100% - 10px - 10px) !important;
+			border-top-left-radius: 12px;
+			margin-top: 10px;
+			border-bottom-right-radius: 12px;
+			background-image: linear-gradient(180deg, rgba(228, 242, 255, 1) 0%, rgba(228, 242, 255, 0.9697607558648459) 70%);
+			margin-bottom: 10px;
+			text-align: center;
+		}
+		.image1-clz {
+			border-bottom-left-radius: 12px;
+			border-top-right-radius: 12px;
+			margin-right: 10px;
+			background-color: #f8f8f8;
+			margin-left: 10px;
+			overflow: hidden;
+			flex: 1;
+			width: calc(100% - 10px - 10px) !important;
+			border-top-left-radius: 12px;
+			margin-top: 10px;
+			border-bottom-right-radius: 12px;
+			background-image: linear-gradient(180deg, rgba(228, 242, 255, 1) 0%, rgba(228, 242, 255, 0.9697607558648459) 70%);
+			margin-bottom: 10px;
+			text-align: center;
+		}
+		.image-clz {
+			border-bottom-left-radius: 12px;
+			border-top-right-radius: 12px;
+			margin-right: 10px;
+			background-color: #f8f8f8;
+			margin-left: 10px;
+			overflow: hidden;
+			flex: 1;
+			width: calc(100% - 10px - 10px) !important;
+			border-top-left-radius: 12px;
+			margin-top: 10px;
+			border-bottom-right-radius: 12px;
+			background-image: linear-gradient(180deg, rgba(228, 242, 255, 1) 0%, rgba(228, 242, 255, 0.9697607558648459) 70%);
+			margin-bottom: 10px;
+			text-align: center;
+		}
+		.container22215 {
+			padding-left: 0px;
+			padding-right: 0px;
+
+			font-size: 10px;
+		}
+		.container22215 {
+			padding-top: 45px;
+			padding-bottom: 80px;
+		}
+	</style>
+</html>
